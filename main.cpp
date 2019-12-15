@@ -10,7 +10,7 @@ int main(int argc,char* argv[]) {
     return 0;
 }
 vector<string> lexer (string filename) {
-    ifstream fp ;
+    ifstream fp;
     string str;
     vector<string> arr;
     fp.open(filename);
