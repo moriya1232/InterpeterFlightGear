@@ -9,7 +9,7 @@ int main(int argc,char* argv[]) {
     vector<string> data = lexer(argv[1]);
     return 0;
 }
-vector<string> lexer (string filename) {
+vector<string> lexer (string filename) {//123
     ifstream fp;
     string str;
     vector<string> arr;
