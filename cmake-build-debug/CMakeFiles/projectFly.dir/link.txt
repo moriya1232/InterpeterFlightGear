@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/projectFly.dir/main.cpp.o  -o projectFly 
+/usr/bin/c++  -g   CMakeFiles/projectFly.dir/main.cpp.o CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o  -o projectFly 

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/98/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/99/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/98/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/99/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shilo/CLionProjects/projectFly
+CMAKE_SOURCE_DIR = /home/yanivmadmon/CLionProjects/projectFly
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shilo/CLionProjects/projectFly/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/projectFly.dir/depend.make
@@ -59,28 +59,58 @@ include CMakeFiles/projectFly.dir/flags.make
 
 CMakeFiles/projectFly.dir/main.cpp.o: CMakeFiles/projectFly.dir/flags.make
 CMakeFiles/projectFly.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/projectFly.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/main.cpp.o -c /home/shilo/CLionProjects/projectFly/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/projectFly.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/main.cpp.o -c /home/yanivmadmon/CLionProjects/projectFly/main.cpp
 
 CMakeFiles/projectFly.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projectFly.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/shilo/CLionProjects/projectFly/main.cpp > CMakeFiles/projectFly.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanivmadmon/CLionProjects/projectFly/main.cpp > CMakeFiles/projectFly.dir/main.cpp.i
 
 CMakeFiles/projectFly.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/shilo/CLionProjects/projectFly/main.cpp -o CMakeFiles/projectFly.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/main.cpp -o CMakeFiles/projectFly.dir/main.cpp.s
+
+CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o: CMakeFiles/projectFly.dir/flags.make
+CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o: ../OpenSeverCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o -c /home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp
+
+CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp > CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.i
+
+CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp -o CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.s
+
+CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o: CMakeFiles/projectFly.dir/flags.make
+CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o: ../ConnectedCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o -c /home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp
+
+CMakeFiles/projectFly.dir/ConnectedCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projectFly.dir/ConnectedCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp > CMakeFiles/projectFly.dir/ConnectedCommand.cpp.i
+
+CMakeFiles/projectFly.dir/ConnectedCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/ConnectedCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp -o CMakeFiles/projectFly.dir/ConnectedCommand.cpp.s
 
 # Object files for target projectFly
 projectFly_OBJECTS = \
-"CMakeFiles/projectFly.dir/main.cpp.o"
+"CMakeFiles/projectFly.dir/main.cpp.o" \
+"CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o" \
+"CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
 
 # External object files for target projectFly
 projectFly_EXTERNAL_OBJECTS =
 
 projectFly: CMakeFiles/projectFly.dir/main.cpp.o
+projectFly: CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o
+projectFly: CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o
 projectFly: CMakeFiles/projectFly.dir/build.make
 projectFly: CMakeFiles/projectFly.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable projectFly"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable projectFly"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/projectFly.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +123,6 @@ CMakeFiles/projectFly.dir/clean:
 .PHONY : CMakeFiles/projectFly.dir/clean
 
 CMakeFiles/projectFly.dir/depend:
-	cd /home/shilo/CLionProjects/projectFly/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shilo/CLionProjects/projectFly /home/shilo/CLionProjects/projectFly /home/shilo/CLionProjects/projectFly/cmake-build-debug /home/shilo/CLionProjects/projectFly/cmake-build-debug /home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yanivmadmon/CLionProjects/projectFly /home/yanivmadmon/CLionProjects/projectFly /home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug /home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug /home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/projectFly.dir/depend
 

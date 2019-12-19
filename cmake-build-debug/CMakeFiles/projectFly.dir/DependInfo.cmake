@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/shilo/CLionProjects/projectFly/main.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/main.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
