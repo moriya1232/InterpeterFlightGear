@@ -177,6 +177,33 @@ OpenSeverCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.s
 .PHONY : OpenSeverCommand.cpp.s
 
+Var.o: Var.cpp.o
+
+.PHONY : Var.o
+
+# target to build an object file
+Var.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Var.cpp.o
+.PHONY : Var.cpp.o
+
+Var.i: Var.cpp.i
+
+.PHONY : Var.i
+
+# target to preprocess a source file
+Var.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Var.cpp.i
+.PHONY : Var.cpp.i
+
+Var.s: Var.cpp.s
+
+.PHONY : Var.s
+
+# target to generate assembly for a file
+Var.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Var.cpp.s
+.PHONY : Var.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... OpenSeverCommand.o"
 	@echo "... OpenSeverCommand.i"
 	@echo "... OpenSeverCommand.s"
+	@echo "... Var.o"
+	@echo "... Var.i"
+	@echo "... Var.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

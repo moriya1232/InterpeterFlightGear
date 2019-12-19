@@ -3,6 +3,6 @@
 //
 
 #include "ConnectedCommand.h"
-int execute(vector<string> data , int index){
+int execute(unordered_map <string,Command>* mapCommand,vector<string> data , int index){
 
 };

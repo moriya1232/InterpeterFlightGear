@@ -9,7 +9,7 @@ using namespace std;
 
 class Command {
 public:
-    virtual int excecute(vector<string> data , int index) = 0;
+    virtual int excecute(unordered_map <string,Command>* mapCommand,vector<string> data , int index) = 0;
     virtual ~Command(){};
 };
 

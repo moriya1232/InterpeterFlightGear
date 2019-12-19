@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/Var.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Var.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/main.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

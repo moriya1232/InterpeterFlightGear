@@ -4,14 +4,26 @@
 #include <fstream>
 #include <unordered_map>
 #include "Command.h"
+#include "OpenSeverCommand.h"
+#include "ConnectedCommand.h"
+#include "Var.h"
+
+
 #include <bits/stdc++.h>
 
 
 using namespace std;
 vector<string> lexer (string str);
 int main(int argc,char* argv[]) {//78
-    unordered_map <string,Command> mapCommand;
+    unordered_map <string,Command>* mapCommand;
+    OpenSeverCommand* openSeverCommand = new OpenSeverCommand();
+    ConnectedCommand* connectedCommand = new ConnectedCommand();
+    Var* var = new Var();
+    mapCommand->insert("OpenSeverCommand",openSeverCommand);
+    mapCommand->insert("ConnectedCommand",connectedCommand);
+    mapCommand->insert("var",var);
     vector<string> data = lexer(argv[1]);
+    parser(mapCommand, data);
     return 0;
 }
 vector<string> lexer (string filename) {//12356
@@ -68,4 +80,13 @@ vector<string> lexer (string filename) {//12356
         }
     }
     fp.close();
+}
+void parser(unordered_map <string,Command>* mapCommand,vector<string> data){
+   int index = 0 ;
+   while (index <  data.size()){
+       Command c = mapCommand.get(data[index]);
+       if (c != Null){
+           index += c.excecute(mapCommand, data ,index);
+       }
+   }
 }

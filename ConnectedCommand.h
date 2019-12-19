@@ -9,7 +9,7 @@
 
 class ConnectedCommand: public Command {
 public:
-    int excecute(vector<string> data , int index);
+    int excecute(unordered_map <string,Command>* mapCommand,vector<string> data , int index);
     virtual ~ConnectedCommand(){};
 
 };
