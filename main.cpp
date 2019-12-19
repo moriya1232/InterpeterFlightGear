@@ -2,10 +2,13 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <unordered_map>
+#include "Command.h"
 
 using namespace std;
 vector<string> lexer (string str);
-int main(int argc,char* argv[]) {
+int main(int argc,char* argv[]) {//78
+    unordered_map <string, Command> mapCommand;
     vector<string> data = lexer(argv[1]);
     return 0;
 }
