@@ -26,7 +26,7 @@ vector<string> lexer (string filename) {//12356
 
         found = str.find_first_of(" (),=\t", found);
 
-        while (found >= 0) {
+        while (found >= 0){
             temp = str.substr(last, found - last);
             if (found != last) {
                 arr.push_back(temp);
