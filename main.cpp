@@ -4,11 +4,13 @@
 #include <fstream>
 #include <unordered_map>
 #include "Command.h"
+#include <bits/stdc++.h>
+
 
 using namespace std;
 vector<string> lexer (string str);
 int main(int argc,char* argv[]) {//78
-    unordered_map <string, Command> mapCommand;
+    unordered_map <string,Command> mapCommand;
     vector<string> data = lexer(argv[1]);
     return 0;
 }
