@@ -4,29 +4,37 @@
 #include <fstream>
 #include <unordered_map>
 #include "Command.h"
-#include "OpenSeverCommand.h"
+#include "OpenServerCommand.h"
 #include "ConnectedCommand.h"
 #include "Var.h"
-
-
-#include <bits/stdc++.h>
+#include "Print.h"
+#include "Sleep.h"
 
 
 using namespace std;
 vector<string> lexer (string str);
-int main(int argc,char* argv[]) {//78
-    unordered_map <string,Command>* mapCommand;
-    OpenSeverCommand* openSeverCommand = new OpenSeverCommand();
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,vector<string>& data);
+int main(int argc,char* argv[]) {
+    unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>();
+    unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>();
+    unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>();
+    OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim);
     ConnectedCommand* connectedCommand = new ConnectedCommand();
     Var* var = new Var();
-    mapCommand->insert("OpenSeverCommand",openSeverCommand);
-    mapCommand->insert("ConnectedCommand",connectedCommand);
-    mapCommand->insert("var",var);
+    Print* print = new Print();
+    Sleep* sleep = new Sleep();
+    mapCommand->insert({"OpenServerCommand",openServerCommand});
+    mapCommand->insert({"ConnectedCommand",connectedCommand});
+    mapCommand->insert({"var",var});
+    mapCommand->insert({"Print",print});
+    mapCommand->insert({"Sleep",sleep});
+
     vector<string> data = lexer(argv[1]);
-    parser(mapCommand, data);
+
+    parser(mapCommand,symbolTable, data);
     return 0;
 }
-vector<string> lexer (string filename) {//12356
+vector<string> lexer (string filename) {
     ifstream fp;
     string str;
     vector<string> arr;
@@ -80,13 +88,31 @@ vector<string> lexer (string filename) {//12356
         }
     }
     fp.close();
+    return arr;
 }
-void parser(unordered_map <string,Command>* mapCommand,vector<string> data){
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,vector<string>& data){
    int index = 0 ;
    while (index <  data.size()){
-       Command c = mapCommand.get(data[index]);
-       if (c != Null){
-           index += c.excecute(mapCommand, data ,index);
+       if ( data[index] == "var"){
+           index++;
+           string key = data[index];
+           string dir = data[index+1];
+           string sim = data[index+3];
+           index+= 4;
+       }
+      else {
+           auto itr = mapCommand->find(data[index]);
+           if (itr != mapCommand->end()) {
+               Command* c = itr->second;
+               index += c->execute(mapCommand,data, index);
+           }
+           else {
+               auto itr = symbolTable->find(data[index]);
+               if (itr != symbolTable->end()) {
+                   Var* c = itr->second;
+                   index += c->execute(mapCommand, data, index);
+               }
+           }
        }
    }
 }

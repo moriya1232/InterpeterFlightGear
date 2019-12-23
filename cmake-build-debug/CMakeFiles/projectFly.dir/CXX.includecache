@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yanivmadmon/CLionProjects/projectFly/Command.h
+iostream
+-
+string
+-
+vector
+-
+fstream
+-
+unordered_map
+-
+
+/home/yanivmadmon/CLionProjects/projectFly/Var.cpp
+Var.h
+/home/yanivmadmon/CLionProjects/projectFly/Var.h
+
+/home/yanivmadmon/CLionProjects/projectFly/Var.h
+iostream
+-
+string
+-
+vector
+-
+fstream
+-
+unordered_map
+-
+Command.h
+/home/yanivmadmon/CLionProjects/projectFly/Command.h
+

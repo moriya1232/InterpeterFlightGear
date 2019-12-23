@@ -3,4 +3,4 @@ project(projectFly)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(projectFly main.cpp Command.h OpenSeverCommand.cpp OpenSeverCommand.h ConnectedCommand.cpp ConnectedCommand.h Var.cpp Var.h)
+add_executable(projectFly main.cpp Command.h OpenServerCommand.cpp OpenServerCommand.h ConnectedCommand.cpp ConnectedCommand.h Var.cpp Var.h Print.cpp Print.h Sleep.cpp Sleep.h)

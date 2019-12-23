@@ -4,12 +4,21 @@
 
 #ifndef PROJECTFLY_CONNECTEDCOMMAND_H
 #define PROJECTFLY_CONNECTEDCOMMAND_H
-#include "main.cpp"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <unordered_map>
+#include "Command.h"
+
+using namespace std;
 
 
-class ConnectedCommand: public Command {
+
+
+class  ConnectedCommand :public  Command {
 public:
-    int excecute(unordered_map <string,Command>* mapCommand,vector<string> data , int index);
+    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index);
     virtual ~ConnectedCommand(){};
 
 };

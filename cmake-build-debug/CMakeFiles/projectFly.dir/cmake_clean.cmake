@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
-  "CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o"
+  "CMakeFiles/projectFly.dir/OpenServerCommand.cpp.o"
+  "CMakeFiles/projectFly.dir/Print.cpp.o"
+  "CMakeFiles/projectFly.dir/Sleep.cpp.o"
   "CMakeFiles/projectFly.dir/Var.cpp.o"
   "CMakeFiles/projectFly.dir/main.cpp.o"
   "projectFly"

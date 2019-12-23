@@ -93,10 +93,22 @@
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Print.cpp">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Print.h">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Sleep.cpp">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Sleep.h">
 			<Option target="projectFly"/>
 		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Var.cpp">

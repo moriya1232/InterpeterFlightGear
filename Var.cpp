@@ -3,10 +3,11 @@
 //
 
 #include "Var.h"
-int execute( unordered_map <string,Command>* mapCommand, vector<string> data , int index){
+int Var :: execute(unordered_map <string,Command*>* mapCommand, vector<string>& data , int index){
     if (data[index] == "var"){
 
         Var* v = new Var() ;
+
 
     }
     else{

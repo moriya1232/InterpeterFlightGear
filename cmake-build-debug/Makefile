@@ -150,32 +150,86 @@ ConnectedCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ConnectedCommand.cpp.s
 .PHONY : ConnectedCommand.cpp.s
 
-OpenSeverCommand.o: OpenSeverCommand.cpp.o
+OpenServerCommand.o: OpenServerCommand.cpp.o
 
-.PHONY : OpenSeverCommand.o
+.PHONY : OpenServerCommand.o
 
 # target to build an object file
-OpenSeverCommand.cpp.o:
-	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o
-.PHONY : OpenSeverCommand.cpp.o
+OpenServerCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenServerCommand.cpp.o
+.PHONY : OpenServerCommand.cpp.o
 
-OpenSeverCommand.i: OpenSeverCommand.cpp.i
+OpenServerCommand.i: OpenServerCommand.cpp.i
 
-.PHONY : OpenSeverCommand.i
+.PHONY : OpenServerCommand.i
 
 # target to preprocess a source file
-OpenSeverCommand.cpp.i:
-	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.i
-.PHONY : OpenSeverCommand.cpp.i
+OpenServerCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenServerCommand.cpp.i
+.PHONY : OpenServerCommand.cpp.i
 
-OpenSeverCommand.s: OpenSeverCommand.cpp.s
+OpenServerCommand.s: OpenServerCommand.cpp.s
 
-.PHONY : OpenSeverCommand.s
+.PHONY : OpenServerCommand.s
 
 # target to generate assembly for a file
-OpenSeverCommand.cpp.s:
-	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.s
-.PHONY : OpenSeverCommand.cpp.s
+OpenServerCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/OpenServerCommand.cpp.s
+.PHONY : OpenServerCommand.cpp.s
+
+Print.o: Print.cpp.o
+
+.PHONY : Print.o
+
+# target to build an object file
+Print.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Print.cpp.o
+.PHONY : Print.cpp.o
+
+Print.i: Print.cpp.i
+
+.PHONY : Print.i
+
+# target to preprocess a source file
+Print.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Print.cpp.i
+.PHONY : Print.cpp.i
+
+Print.s: Print.cpp.s
+
+.PHONY : Print.s
+
+# target to generate assembly for a file
+Print.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Print.cpp.s
+.PHONY : Print.cpp.s
+
+Sleep.o: Sleep.cpp.o
+
+.PHONY : Sleep.o
+
+# target to build an object file
+Sleep.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Sleep.cpp.o
+.PHONY : Sleep.cpp.o
+
+Sleep.i: Sleep.cpp.i
+
+.PHONY : Sleep.i
+
+# target to preprocess a source file
+Sleep.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Sleep.cpp.i
+.PHONY : Sleep.cpp.i
+
+Sleep.s: Sleep.cpp.s
+
+.PHONY : Sleep.s
+
+# target to generate assembly for a file
+Sleep.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Sleep.cpp.s
+.PHONY : Sleep.cpp.s
 
 Var.o: Var.cpp.o
 
@@ -243,9 +297,15 @@ help:
 	@echo "... ConnectedCommand.o"
 	@echo "... ConnectedCommand.i"
 	@echo "... ConnectedCommand.s"
-	@echo "... OpenSeverCommand.o"
-	@echo "... OpenSeverCommand.i"
-	@echo "... OpenSeverCommand.s"
+	@echo "... OpenServerCommand.o"
+	@echo "... OpenServerCommand.i"
+	@echo "... OpenServerCommand.s"
+	@echo "... Print.o"
+	@echo "... Print.i"
+	@echo "... Print.s"
+	@echo "... Sleep.o"
+	@echo "... Sleep.i"
+	@echo "... Sleep.s"
 	@echo "... Var.o"
 	@echo "... Var.i"
 	@echo "... Var.s"

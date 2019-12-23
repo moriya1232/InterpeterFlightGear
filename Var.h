@@ -4,17 +4,27 @@
 
 #ifndef PROJECTFLY_VAR_H
 #define PROJECTFLY_VAR_H
-
-
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <unordered_map>
 #include "Command.h"
+
+using namespace std;
+
 
 class Var : public Command {
     string value ;
     string sim;
+    char dir ;  // direction
 public:
-    Var(string val , string si) { this->value = val; this->sim = si};
+    Var(string val , string si) { this->value = val; this->sim = si;};
     Var(){};
-    int excecute(unordered_map <string,Command>* mapCommand,vector<string> data , int index);
+    void setValue(string s){this->value = s;};
+    void setSim(string s){this->sim = s;};
+    void setDir(string s){if (s == "->"){this->dir = 'R';}else{this->dir = 'L';}};
+    int execute(unordered_map <string,Command*>* mapCommand, vector<string>& data , int index);
     virtual ~Var(){};
 
 };

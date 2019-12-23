@@ -5,7 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
-  "/home/yanivmadmon/CLionProjects/projectFly/OpenSeverCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/OpenSeverCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/OpenServerCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/Print.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Print.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/Sleep.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Sleep.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/Var.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Var.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/main.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
   )
