@@ -135,6 +135,45 @@ CMakeFiles/projectFly.dir/Sleep.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/Sleep.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/Sleep.cpp -o CMakeFiles/projectFly.dir/Sleep.cpp.s
 
+CMakeFiles/projectFly.dir/ConditionParser.cpp.o: CMakeFiles/projectFly.dir/flags.make
+CMakeFiles/projectFly.dir/ConditionParser.cpp.o: ../ConditionParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/projectFly.dir/ConditionParser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/ConditionParser.cpp.o -c /home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp
+
+CMakeFiles/projectFly.dir/ConditionParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projectFly.dir/ConditionParser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp > CMakeFiles/projectFly.dir/ConditionParser.cpp.i
+
+CMakeFiles/projectFly.dir/ConditionParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/ConditionParser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp -o CMakeFiles/projectFly.dir/ConditionParser.cpp.s
+
+CMakeFiles/projectFly.dir/IfCommand.cpp.o: CMakeFiles/projectFly.dir/flags.make
+CMakeFiles/projectFly.dir/IfCommand.cpp.o: ../IfCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/projectFly.dir/IfCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/IfCommand.cpp.o -c /home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp
+
+CMakeFiles/projectFly.dir/IfCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projectFly.dir/IfCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp > CMakeFiles/projectFly.dir/IfCommand.cpp.i
+
+CMakeFiles/projectFly.dir/IfCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/IfCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp -o CMakeFiles/projectFly.dir/IfCommand.cpp.s
+
+CMakeFiles/projectFly.dir/LoopCommand.cpp.o: CMakeFiles/projectFly.dir/flags.make
+CMakeFiles/projectFly.dir/LoopCommand.cpp.o: ../LoopCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/projectFly.dir/LoopCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/projectFly.dir/LoopCommand.cpp.o -c /home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp
+
+CMakeFiles/projectFly.dir/LoopCommand.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/projectFly.dir/LoopCommand.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp > CMakeFiles/projectFly.dir/LoopCommand.cpp.i
+
+CMakeFiles/projectFly.dir/LoopCommand.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/projectFly.dir/LoopCommand.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp -o CMakeFiles/projectFly.dir/LoopCommand.cpp.s
+
 # Object files for target projectFly
 projectFly_OBJECTS = \
 "CMakeFiles/projectFly.dir/main.cpp.o" \
@@ -142,7 +181,10 @@ projectFly_OBJECTS = \
 "CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o" \
 "CMakeFiles/projectFly.dir/Var.cpp.o" \
 "CMakeFiles/projectFly.dir/Print.cpp.o" \
-"CMakeFiles/projectFly.dir/Sleep.cpp.o"
+"CMakeFiles/projectFly.dir/Sleep.cpp.o" \
+"CMakeFiles/projectFly.dir/ConditionParser.cpp.o" \
+"CMakeFiles/projectFly.dir/IfCommand.cpp.o" \
+"CMakeFiles/projectFly.dir/LoopCommand.cpp.o"
 
 # External object files for target projectFly
 projectFly_EXTERNAL_OBJECTS =
@@ -153,9 +195,12 @@ projectFly: CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o
 projectFly: CMakeFiles/projectFly.dir/Var.cpp.o
 projectFly: CMakeFiles/projectFly.dir/Print.cpp.o
 projectFly: CMakeFiles/projectFly.dir/Sleep.cpp.o
+projectFly: CMakeFiles/projectFly.dir/ConditionParser.cpp.o
+projectFly: CMakeFiles/projectFly.dir/IfCommand.cpp.o
+projectFly: CMakeFiles/projectFly.dir/LoopCommand.cpp.o
 projectFly: CMakeFiles/projectFly.dir/build.make
 projectFly: CMakeFiles/projectFly.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable projectFly"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable projectFly"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/projectFly.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

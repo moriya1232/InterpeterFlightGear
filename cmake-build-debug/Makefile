@@ -123,6 +123,33 @@ projectFly/fast:
 	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/build
 .PHONY : projectFly/fast
 
+ConditionParser.o: ConditionParser.cpp.o
+
+.PHONY : ConditionParser.o
+
+# target to build an object file
+ConditionParser.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ConditionParser.cpp.o
+.PHONY : ConditionParser.cpp.o
+
+ConditionParser.i: ConditionParser.cpp.i
+
+.PHONY : ConditionParser.i
+
+# target to preprocess a source file
+ConditionParser.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ConditionParser.cpp.i
+.PHONY : ConditionParser.cpp.i
+
+ConditionParser.s: ConditionParser.cpp.s
+
+.PHONY : ConditionParser.s
+
+# target to generate assembly for a file
+ConditionParser.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ConditionParser.cpp.s
+.PHONY : ConditionParser.cpp.s
+
 ConnectedCommand.o: ConnectedCommand.cpp.o
 
 .PHONY : ConnectedCommand.o
@@ -149,6 +176,60 @@ ConnectedCommand.s: ConnectedCommand.cpp.s
 ConnectedCommand.cpp.s:
 	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ConnectedCommand.cpp.s
 .PHONY : ConnectedCommand.cpp.s
+
+IfCommand.o: IfCommand.cpp.o
+
+.PHONY : IfCommand.o
+
+# target to build an object file
+IfCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/IfCommand.cpp.o
+.PHONY : IfCommand.cpp.o
+
+IfCommand.i: IfCommand.cpp.i
+
+.PHONY : IfCommand.i
+
+# target to preprocess a source file
+IfCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/IfCommand.cpp.i
+.PHONY : IfCommand.cpp.i
+
+IfCommand.s: IfCommand.cpp.s
+
+.PHONY : IfCommand.s
+
+# target to generate assembly for a file
+IfCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/IfCommand.cpp.s
+.PHONY : IfCommand.cpp.s
+
+LoopCommand.o: LoopCommand.cpp.o
+
+.PHONY : LoopCommand.o
+
+# target to build an object file
+LoopCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/LoopCommand.cpp.o
+.PHONY : LoopCommand.cpp.o
+
+LoopCommand.i: LoopCommand.cpp.i
+
+.PHONY : LoopCommand.i
+
+# target to preprocess a source file
+LoopCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/LoopCommand.cpp.i
+.PHONY : LoopCommand.cpp.i
+
+LoopCommand.s: LoopCommand.cpp.s
+
+.PHONY : LoopCommand.s
+
+# target to generate assembly for a file
+LoopCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/LoopCommand.cpp.s
+.PHONY : LoopCommand.cpp.s
 
 OpenServerCommand.o: OpenServerCommand.cpp.o
 
@@ -294,9 +375,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... projectFly"
 	@echo "... edit_cache"
+	@echo "... ConditionParser.o"
+	@echo "... ConditionParser.i"
+	@echo "... ConditionParser.s"
 	@echo "... ConnectedCommand.o"
 	@echo "... ConnectedCommand.i"
 	@echo "... ConnectedCommand.s"
+	@echo "... IfCommand.o"
+	@echo "... IfCommand.i"
+	@echo "... IfCommand.s"
+	@echo "... LoopCommand.o"
+	@echo "... LoopCommand.i"
+	@echo "... LoopCommand.s"
 	@echo "... OpenServerCommand.o"
 	@echo "... OpenServerCommand.i"
 	@echo "... OpenServerCommand.s"

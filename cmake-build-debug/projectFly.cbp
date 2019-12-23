@@ -87,10 +87,28 @@
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Command.h">
 			<Option target="projectFly"/>
 		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.h">
+			<Option target="projectFly"/>
+		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.h">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/IfCommand.h">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp">
