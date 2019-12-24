@@ -20,6 +20,7 @@ class Var : public Command {
     char dir ;  // direction
 public:
     Var(string val , string si) { this->value = val; this->sim = si;};
+    Var(string simu) {this->sim=simu;};
     Var(){};
     void setValue(string s){this->value = s;};
     void setSim(string s){this->sim = s;};

@@ -10,10 +10,16 @@
 #include "Var.h"
 
 class OpenServerCommand :public Command {
-    unordered_map <string,Var*>* symboltableSim;
+    unordered_map<string,Var*> symboltableSim;
 public:
-    OpenServerCommand (unordered_map <string,Var*>* symbolTableSim){this->symboltableSim =symbolTableSim;};
+    unordered_map<string,Var *> initSymballXml();
+    string* initXmlArr();
+    OpenServerCommand (unordered_map <string,Var*>* symbolTableSim){this->symboltableSim = *symbolTableSim;};
     int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index);
+    int openServer(string str);
+    OpenServerCommand(unordered_map <string,Var*> mapSym) {
+       this->symboltableSim=mapSym;
+    }
     virtual ~OpenServerCommand(){};
 };
 
