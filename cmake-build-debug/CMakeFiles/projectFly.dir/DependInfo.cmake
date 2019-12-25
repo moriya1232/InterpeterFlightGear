@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/yanivmadmon/CLionProjects/projectFly/Print.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Print.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/Sleep.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Sleep.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/Var.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Var.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/ex1.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ex1.cpp.o"
   "/home/yanivmadmon/CLionProjects/projectFly/main.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

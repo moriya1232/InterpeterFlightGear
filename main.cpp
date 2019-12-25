@@ -13,25 +13,25 @@
 
 using namespace std;
 vector<string> lexer (string str);
-void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,vector<string>& data);
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data);
 int main(int argc,char* argv[]) {
     unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>();
     unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>();
     unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>();
     OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim);
-    ConnectedCommand* connectedCommand = new ConnectedCommand();
-    Var* var = new Var();
+  //  ConnectedCommand* connectedCommand = new ConnectedCommand();
+    //Var* var = new Var();
     Print* print = new Print();
     Sleep* sleep = new Sleep();
-    mapCommand->insert({"OpenServerCommand",openServerCommand});
-    mapCommand->insert({"ConnectedCommand",connectedCommand});
-    mapCommand->insert({"var",var});
+    mapCommand->insert({"openDataServer",openServerCommand});
+    //mapCommand->insert({"ConnectedCommand",connectedCommand});
+    //mapCommand->insert({"var",var});
     mapCommand->insert({"Print",print});
     mapCommand->insert({"Sleep",sleep});
 
     vector<string> data = lexer(argv[1]);
 
-    parser(mapCommand,symbolTable, data);
+    parser(mapCommand,symbolTable,symbolTableSim, data);
     return 0;
 }
 vector<string> lexer (string filename) {
@@ -90,14 +90,18 @@ vector<string> lexer (string filename) {
     fp.close();
     return arr;
 }
-void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,vector<string>& data){
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data){
    int index = 0 ;
+
    while (index <  data.size()){
        if ( data[index] == "var"){
            index++;
            string key = data[index];
            string dir = data[index+1];
            string sim = data[index+3];
+           Var* v = symbolTableSim->find(sim)->second;
+           v->setDir(dir);
+           symbolTable->insert({key,v});
            index+= 4;
        }
       else {

@@ -339,6 +339,33 @@ Var.cpp.s:
 	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/Var.cpp.s
 .PHONY : Var.cpp.s
 
+ex1.o: ex1.cpp.o
+
+.PHONY : ex1.o
+
+# target to build an object file
+ex1.cpp.o:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ex1.cpp.o
+.PHONY : ex1.cpp.o
+
+ex1.i: ex1.cpp.i
+
+.PHONY : ex1.i
+
+# target to preprocess a source file
+ex1.cpp.i:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ex1.cpp.i
+.PHONY : ex1.cpp.i
+
+ex1.s: ex1.cpp.s
+
+.PHONY : ex1.s
+
+# target to generate assembly for a file
+ex1.cpp.s:
+	$(MAKE) -f CMakeFiles/projectFly.dir/build.make CMakeFiles/projectFly.dir/ex1.cpp.s
+.PHONY : ex1.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -399,6 +426,9 @@ help:
 	@echo "... Var.o"
 	@echo "... Var.i"
 	@echo "... Var.s"
+	@echo "... ex1.o"
+	@echo "... ex1.i"
+	@echo "... ex1.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

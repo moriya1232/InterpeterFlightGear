@@ -99,6 +99,9 @@
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Expression.h">
+			<Option target="projectFly"/>
+		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
@@ -133,6 +136,12 @@
 			<Option target="projectFly"/>
 		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Var.h">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ex1.cpp">
+			<Option target="projectFly"/>
+		</Unit>
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ex1.h">
 			<Option target="projectFly"/>
 		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/main.cpp">

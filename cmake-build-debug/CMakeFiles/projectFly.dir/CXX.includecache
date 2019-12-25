@@ -18,7 +18,25 @@ fstream
 unordered_map
 -
 
-/home/yanivmadmon/CLionProjects/projectFly/Var.cpp
+/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp
+OpenServerCommand.h
+/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
+sys/socket.h
+-
+string
+-
+iostream
+-
+unistd.h
+-
+netinet/in.h
+-
+thread
+-
+
+/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
+Command.h
+/home/yanivmadmon/CLionProjects/projectFly/Command.h
 Var.h
 /home/yanivmadmon/CLionProjects/projectFly/Var.h
 
