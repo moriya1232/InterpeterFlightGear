@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <unordered_map>
+#include <thread>
 #include "Command.h"
 #include "OpenServerCommand.h"
 #include "ConnectedCommand.h"
@@ -92,7 +93,7 @@ vector<string> lexer (string filename) {
 }
 void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data){
    int index = 0 ;
-
+   bool isConnect =false ;
    while (index <  data.size()){
        if ( data[index] == "var"){
            index++;
@@ -105,6 +106,13 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            index+= 4;
        }
       else {
+          if (data[index] == "openDataServer"){
+            thread server (OpenServerCommand:: openServer,data[index+1],symbolTableSim,&isConnect);
+            while (!isConnect){
+                server.join();
+            }
+          }
+          if(data[index] == "ConnectedCommand"){}
            auto itr = mapCommand->find(data[index]);
            if (itr != mapCommand->end()) {
                Command* c = itr->second;

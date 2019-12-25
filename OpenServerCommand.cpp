@@ -12,12 +12,11 @@
 
 
 int OpenServerCommand:: execute(unordered_map<string,Command *> * mapCommand, vector<std::__cxx11::string> & data, int index) {
-    initSymballXml();
-   // thread thr1 (openServer,data.at(index+1));
+    //initSymballXml();
    return 2;
 };
-void OpenServerCommand:: initSymballXml() {
-    unordered_map<string,Var *>* tempMap = this->symboltableSim;
+void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableSim) {
+    unordered_map<string,Var *>* tempMap = symboltableSim;
     tempMap->insert({"/instrumentation/airspeed-indicator/indicated-speed-kt",
                     new Var("instrumentation/airspeed-indicator/indicated-speed-kt")});
     tempMap->insert({"/sim/time/warp",new Var("sim/time/warp")});
@@ -122,8 +121,9 @@ vector<string> OpenServerCommand:: initXmlArr() {
         arr[35] = "/engines/engine/rpm";
         return arr;
 };
-int OpenServerCommand:: openServer(string str) {
-    int port=stoi(str);
+ int OpenServerCommand:: openServer(string str ,unordered_map<string,Var*>* symboltableSim, bool isConnect) {
+     initSymballXml(symboltableSim);
+     int port=stoi(str);
     string* arr;
    // arr=initXmlArr();
     //create socket
@@ -169,6 +169,7 @@ int OpenServerCommand:: openServer(string str) {
     char buffer[1024] = {0};
     string str1="";
     while(true) {
+        isConnect = true;
         int i = 0;
         int j = 0;
         int valread = read(client_socket, buffer, 1024);
@@ -177,8 +178,8 @@ int OpenServerCommand:: openServer(string str) {
                 str1 += buffer[i];
                 i++;
             }
-            float f = stof(str1);
-            this->symboltableSim.at(arr[j])->value=f;
+            //float f = stof(str1);
+            symboltableSim->at(arr[j])->setValue(str1) ;
             j++;
             i++;
         }

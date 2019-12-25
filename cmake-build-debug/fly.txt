@@ -1,5 +1,5 @@
 openDataServer(5400)
-var breaks -> sim("controls/flight/speedbrake")
+var breaks -> sim("/controls/flight/speedbrake")
 warp = 32000
 Sleep(1000)
 mixture = 0.949

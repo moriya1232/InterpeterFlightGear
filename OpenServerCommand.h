@@ -13,10 +13,10 @@ class OpenServerCommand :public Command {
     unordered_map<string,Var*>* symboltableSim;
 public:
     OpenServerCommand (unordered_map <string,Var*>* symbolTableSim){this->symboltableSim = symbolTableSim;};
-    void initSymballXml();
+    static void initSymballXml(unordered_map<string,Var*>* symboltableSim);
     vector<string> initXmlArr();
     int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index);
-    int openServer(string str);
+    static int openServer(string str,unordered_map<string,Var*>* symboltableSim, bool isConnect);
     virtual ~OpenServerCommand(){};
 };
 
