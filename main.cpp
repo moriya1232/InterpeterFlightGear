@@ -107,11 +107,11 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
        }
       else {
           if (data[index] == "openDataServer"){
-
             thread server (OpenServerCommand:: openServer,data[index+1],symbolTableSim,&isConnect);
             while (!isConnect){
                 server.join();
             }
+
           }
           if(data[index] == "ConnectedCommand"){}
            auto itr = mapCommand->find(data[index]);

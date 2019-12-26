@@ -24,8 +24,8 @@ public:
     Var(){};
     void setValue(string s){this->value = s;};
     string getValue(){return this->value;};
-    void setSim(string s){this->sim = s;};
-    void setDir(string s){if (s == "->"){this->dir = 'R';}else{this->dir = 'L';}};
+    void setSim(const string& s){this->sim = s;};
+    void setDir(const string& s){if (s == "->"){this->dir = 'R';}else{this->dir = 'L';}};
     int execute(unordered_map <string,Command*>* mapCommand, vector<string>& data , int index);
     virtual ~Var(){};
 
