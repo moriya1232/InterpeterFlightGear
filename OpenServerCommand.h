@@ -16,7 +16,7 @@ public:
     static void initSymballXml(unordered_map<string,Var*>* symboltableSim);
     vector<string> initXmlArr();
     int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index);
-    static int openServer(string str,unordered_map<string,Var*>* symboltableSim, bool isConnect);
+    static int openServer(string str,unordered_map<string,Var*>* symboltableSim, bool* isConnect);
     virtual ~OpenServerCommand(){};
 };
 

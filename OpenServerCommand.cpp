@@ -121,7 +121,7 @@ vector<string> OpenServerCommand:: initXmlArr() {
         arr[35] = "/engines/engine/rpm";
         return arr;
 };
- int OpenServerCommand:: openServer(string str ,unordered_map<string,Var*>* symboltableSim, bool isConnect) {
+ int OpenServerCommand:: openServer(string str ,unordered_map<string,Var*>* symboltableSim, bool* isConnect) {
      initSymballXml(symboltableSim);
      int port=stoi(str);
     string* arr;
@@ -133,7 +133,6 @@ vector<string> OpenServerCommand:: initXmlArr() {
         std::cerr << "Could not create a socket" << std::endl;
         return -1;
     }
-
 
     //bind socket to IP address
     sockaddr_in address; //in means IP4
@@ -168,8 +167,8 @@ vector<string> OpenServerCommand:: initXmlArr() {
     //reading from client
     char buffer[1024] = {0};
     string str1="";
-    while(true) {
-        isConnect = true;
+     *isConnect = true;
+     while(true) {
         int i = 0;
         int j = 0;
         int valread = read(client_socket, buffer, 1024);
