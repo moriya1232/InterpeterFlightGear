@@ -11,7 +11,7 @@
 #include <thread>
 
 
-int OpenServerCommand:: execute(unordered_map<string,Command *> * mapCommand, vector<std::__cxx11::string> & data, int index,queue<string>* queueMas) {
+int OpenServerCommand:: execute(unordered_map<string,Command *> * mapCommand, vector<std::__cxx11::string> & data, int index) {
     //initSymballXml();
    return 2;
 };
@@ -81,9 +81,8 @@ void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableS
                     new Var("/controls/switches/master-alt")});
     tempMap->insert({"/engines/engine/rpm",new Var("engines/engine/rpm")});
 };
-vector<string> OpenServerCommand:: initXmlArr() {
-        vector<string> arr;
-        arr[0] = "/instrumentation/airspeed-indicator/indicated-speed-kt";
+void OpenServerCommand:: initXmlArr(string* arr) {
+        arr[0] ="/instrumentation/airspeed-indicator/indicated-speed-kt";
         arr[1] = "/sim/time/warp";
         arr[2] = "/controls/switches/magnetos";
         arr[3] = "/instrumentation/heading-indicator/offset-deg";
@@ -119,13 +118,13 @@ vector<string> OpenServerCommand:: initXmlArr() {
         arr[33] = "/controls/switches/master-bat";
         arr[34] = "/controls/switches/master-alt";
         arr[35] = "/engines/engine/rpm";
-        return arr;
 };
  int OpenServerCommand:: openServer(string str ,unordered_map<string,Var*>* symboltableSim, bool* isConnect) {
      initSymballXml(symboltableSim);
      int port=stoi(str);
-    string* arr;
-   // arr=initXmlArr();
+     string arr[40] ;
+     initXmlArr(arr);
+
     //create socket
     int socketfd = socket(AF_INET, SOCK_STREAM, 0);
     if (socketfd == -1) {
@@ -168,18 +167,19 @@ vector<string> OpenServerCommand:: initXmlArr() {
     char buffer[1024] = {0};
     string str1="";
      *isConnect = true;
+
      while(true) {
         int i = 0;
         int j = 0;
         int valread = read(client_socket, buffer, 1024);
-        while (buffer[i] != '\n') {
+         while (buffer[i] != '\n') {
+             str1 = "";
             while (buffer[i] != ',') {
                 str1 += buffer[i];
                 i++;
             }
-            //float f = stof(str1);
             symboltableSim->at(arr[j])->setValue(str1) ;
-            cout<<str1<<endl;
+
             j++;
             i++;
         }
