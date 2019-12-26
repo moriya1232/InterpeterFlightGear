@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/yanivmadmon/CLionProjects/projectFly/Command.h
+/home/shilo/CLionProjects/projectFly/Command.h
 iostream
 -
 string
@@ -18,9 +18,9 @@ fstream
 unordered_map
 -
 
-/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp
+/home/shilo/CLionProjects/projectFly/OpenServerCommand.cpp
 OpenServerCommand.h
-/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
+/home/shilo/CLionProjects/projectFly/OpenServerCommand.h
 sys/socket.h
 -
 string
@@ -34,13 +34,13 @@ netinet/in.h
 thread
 -
 
-/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
+/home/shilo/CLionProjects/projectFly/OpenServerCommand.h
 Command.h
-/home/yanivmadmon/CLionProjects/projectFly/Command.h
+/home/shilo/CLionProjects/projectFly/Command.h
 Var.h
-/home/yanivmadmon/CLionProjects/projectFly/Var.h
+/home/shilo/CLionProjects/projectFly/Var.h
 
-/home/yanivmadmon/CLionProjects/projectFly/Var.h
+/home/shilo/CLionProjects/projectFly/Var.h
 iostream
 -
 string
@@ -52,5 +52,5 @@ fstream
 unordered_map
 -
 Command.h
-/home/yanivmadmon/CLionProjects/projectFly/Command.h
+/home/shilo/CLionProjects/projectFly/Command.h
 

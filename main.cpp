@@ -4,6 +4,7 @@
 #include <fstream>
 #include <unordered_map>
 #include <thread>
+#include <queue>
 #include "Command.h"
 #include "OpenServerCommand.h"
 #include "ConnectedCommand.h"
@@ -14,11 +15,12 @@
 
 using namespace std;
 vector<string> lexer (string str);
-void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data);
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas);
 int main(int argc,char* argv[]) {
     unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>();
     unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>();
     unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>();
+    queue <string>* masQueue=new queue<string>();
     OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim);
   //  ConnectedCommand* connectedCommand = new ConnectedCommand();
     //Var* var = new Var();
@@ -32,7 +34,7 @@ int main(int argc,char* argv[]) {
 
     vector<string> data = lexer(argv[1]);
 
-    parser(mapCommand,symbolTable,symbolTableSim, data);
+    parser(mapCommand,symbolTable,symbolTableSim, data,masQueue);
     return 0;
 }
 vector<string> lexer (string filename) {
@@ -91,7 +93,7 @@ vector<string> lexer (string filename) {
     fp.close();
     return arr;
 }
-void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data){
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas){
    int index = 0 ;
    bool isConnect =false ;
    while (index <  data.size()){
@@ -113,17 +115,19 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
                 server.join();
             }
           }
-          if(data[index] == "ConnectedCommand"){}
+          if(data[index] == "ConnectedCommand"){
+
+          }
            auto itr = mapCommand->find(data[index]);
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
-               index += c->execute(mapCommand,data, index);
+               index += c->execute(mapCommand,data, index,queueMas);
            }
            else {
                auto itr = symbolTable->find(data[index]);
                if (itr != symbolTable->end()) {
                    Var* c = itr->second;
-                   index += c->execute(mapCommand, data, index);
+                   index += c->execute(mapCommand, data, index,queueMas);
                }
            }
        }

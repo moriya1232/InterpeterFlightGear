@@ -11,7 +11,7 @@
 #include <thread>
 
 
-int OpenServerCommand:: execute(unordered_map<string,Command *> * mapCommand, vector<std::__cxx11::string> & data, int index) {
+int OpenServerCommand:: execute(unordered_map<string,Command *> * mapCommand, vector<std::__cxx11::string> & data, int index,queue<string>* queueMas) {
     //initSymballXml();
    return 2;
 };
@@ -179,6 +179,7 @@ vector<string> OpenServerCommand:: initXmlArr() {
             }
             //float f = stof(str1);
             symboltableSim->at(arr[j])->setValue(str1) ;
+            cout<<str1<<endl;
             j++;
             i++;
         }

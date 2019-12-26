@@ -9,11 +9,13 @@
 #include <vector>
 #include <fstream>
 #include <unordered_map>
+#include <queue>
+
 using namespace std;
 
 class Command {
 public:
-    virtual int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index) = 0;
+    virtual int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas) = 0;
     virtual ~Command() {}
 };
 
