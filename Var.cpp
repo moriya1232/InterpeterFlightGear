@@ -3,15 +3,14 @@
 //
 
 #include "Var.h"
-int Var :: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>*queueMas){
+int Var :: execute(unordered_map <string,Command*>* mapCommand, vector<string>& data , int index){
     if (data[index] == "var"){
 
         Var* v = new Var() ;
+
 
     }
     else{
 
     }
-}
-
-void Var::setDir(string s) {if (s == "->"){this->dir = 'R';}else{this->dir = 'L';}};
+};

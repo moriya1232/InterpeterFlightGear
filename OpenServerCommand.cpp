@@ -174,16 +174,25 @@ void OpenServerCommand:: initXmlArr(string* arr) {
         int valread = read(client_socket, buffer, 1024);
          while (buffer[i] != '\n') {
              str1 = "";
-            while (buffer[i] != ',') {
+            while (buffer[i] != ',' ) {
+                if(buffer[i] == '\n'){
+                    break;
+                }
                 str1 += buffer[i];
                 i++;
             }
-            symboltableSim->at(arr[j])->setValue(str1) ;
+            Var* v = symboltableSim->at(arr[j]);
 
+            v->setValue(str1);
+            if (j == 35){
+                break;
+            }
             j++;
             i++;
         }
+
     }
+
 };
 
 

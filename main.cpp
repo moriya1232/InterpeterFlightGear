@@ -11,6 +11,7 @@
 #include "Var.h"
 #include "Print.h"
 #include "Sleep.h"
+#include "ex1.h"
 
 
 using namespace std;
@@ -109,11 +110,14 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
        }
       else {
           if (data[index] == "openDataServer"){
-            thread server (OpenServerCommand:: openServer,data[index+1],symbolTableSim,&isConnect);
-            while (!isConnect){
+              Interpreter* i3 = new Interpreter();
+              Expression* e6 =  i3->interpret("5000+4*100");
+              double num = e6->calculate();
+              auto finalStr = std::to_string(num);
+              thread server (OpenServerCommand:: openServer,finalStr,symbolTableSim,&isConnect);
+              while (!isConnect){
                 server.join();
             }
-
           }
           if(data[index] == "ConnectedCommand"){
 

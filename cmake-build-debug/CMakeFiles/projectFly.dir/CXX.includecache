@@ -34,22 +34,6 @@ Command.h
 
 /home/yanivmadmon/CLionProjects/projectFly/Expression.h
 
-/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp
-OpenServerCommand.h
-/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
-sys/socket.h
--
-string
--
-iostream
--
-unistd.h
--
-netinet/in.h
--
-thread
--
-
 /home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
 Command.h
 /home/yanivmadmon/CLionProjects/projectFly/Command.h
@@ -64,10 +48,6 @@ Command.h
 Command.h
 /home/yanivmadmon/CLionProjects/projectFly/Command.h
 
-/home/yanivmadmon/CLionProjects/projectFly/Var.cpp
-Var.h
-/home/yanivmadmon/CLionProjects/projectFly/Var.h
-
 /home/yanivmadmon/CLionProjects/projectFly/Var.h
 iostream
 -
@@ -81,26 +61,6 @@ unordered_map
 -
 Command.h
 /home/yanivmadmon/CLionProjects/projectFly/Command.h
-
-/home/yanivmadmon/CLionProjects/projectFly/ex1.cpp
-ex1.h
-/home/yanivmadmon/CLionProjects/projectFly/ex1.h
-string
--
-iostream
--
-sstream
--
-stack
--
-queue
--
-iterator
--
-map
--
-bits/stdc++.h
--
 
 /home/yanivmadmon/CLionProjects/projectFly/ex1.h
 Expression.h
@@ -139,4 +99,6 @@ Print.h
 /home/yanivmadmon/CLionProjects/projectFly/Print.h
 Sleep.h
 /home/yanivmadmon/CLionProjects/projectFly/Sleep.h
+ex1.h
+/home/yanivmadmon/CLionProjects/projectFly/ex1.h
 

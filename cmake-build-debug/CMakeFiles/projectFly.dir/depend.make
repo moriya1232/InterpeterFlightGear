@@ -44,9 +44,11 @@ CMakeFiles/projectFly.dir/ex1.cpp.o: ../ex1.h
 
 CMakeFiles/projectFly.dir/main.cpp.o: ../Command.h
 CMakeFiles/projectFly.dir/main.cpp.o: ../ConnectedCommand.h
+CMakeFiles/projectFly.dir/main.cpp.o: ../Expression.h
 CMakeFiles/projectFly.dir/main.cpp.o: ../OpenServerCommand.h
 CMakeFiles/projectFly.dir/main.cpp.o: ../Print.h
 CMakeFiles/projectFly.dir/main.cpp.o: ../Sleep.h
 CMakeFiles/projectFly.dir/main.cpp.o: ../Var.h
+CMakeFiles/projectFly.dir/main.cpp.o: ../ex1.h
 CMakeFiles/projectFly.dir/main.cpp.o: ../main.cpp
 
