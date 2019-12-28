@@ -24,12 +24,12 @@ int main(int argc,char* argv[]) {
     queue <string>* masQueue=new queue<string>();
     OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim);
   //  ConnectedCommand* connectedCommand = new ConnectedCommand();
-    //Var* var = new Var();
+
     Print* print = new Print();
     Sleep* sleep = new Sleep();
     mapCommand->insert({"openDataServer",openServerCommand});
     //mapCommand->insert({"ConnectedCommand",connectedCommand});
-    //mapCommand->insert({"var",var});
+
     mapCommand->insert({"Print",print});
     mapCommand->insert({"Sleep",sleep});
 
@@ -111,15 +111,13 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
       else {
           if (data[index] == "openDataServer"){
               Interpreter* i3 = new Interpreter();
-              Expression* e6 =  i3->interpret("5000+4*100");
+              Expression* e6 =  i3->interpret(data[index+1]);
               double num = e6->calculate();
               auto finalStr = std::to_string(num);
               thread server (OpenServerCommand:: openServer,finalStr,symbolTableSim,&isConnect);
               while (!isConnect){
                 server.join();
             }
-          }
-          if(data[index] == "ConnectedCommand"){
 
           }
            auto itr = mapCommand->find(data[index]);

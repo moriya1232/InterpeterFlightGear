@@ -11,8 +11,7 @@
 #include <thread>
 
 
-int OpenServerCommand:: execute(unordered_map<string,Command *> * mapCommand, vector<std::__cxx11::string> & data, int index) {
-    //initSymballXml();
+int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas) {
    return 2;
 };
 void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableSim) {
