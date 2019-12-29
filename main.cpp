@@ -60,6 +60,15 @@ vector<string> lexer (string filename) {
             if (found != last) {
                 arr.push_back(temp);
             }
+            if((found!=-1)&&((arr.back()=="while")||(arr.back()=="if"))) {
+                int temp1=found+1;
+                found=str.find_first_of("{");
+                arr.push_back(str.substr(temp1,found-temp1));
+                arr.push_back("{");
+                found=-1;
+                last=(str.length());
+                break;
+            }
             if((found!=-1)&&(str.at(found)=='=')) {
                 if((str.at(found-1)=='<')||(str.at(found-1)=='>')) {
                     arr.pop_back();
