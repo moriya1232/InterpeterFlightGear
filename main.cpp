@@ -12,33 +12,40 @@
 #include "Print.h"
 #include "Sleep.h"
 #include "ex1.h"
+#include "LoopCommand.h"
+#include "IfCommand.h"
 
 
 using namespace std;
-vector<string> lexer (string str);
-void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas);
+vector<string>  lexer (string str);
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect);
 int main(int argc,char* argv[]) {
+    bool isConnect = false;
     unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>();
     unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>();
     unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>();
     queue <string>* masQueue=new queue<string>();
-    OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim);
-  //  ConnectedCommand* connectedCommand = new ConnectedCommand();
 
+    OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim,isConnect);
+    ConnectedCommand* connectedCommand = new ConnectedCommand();
+    LoopCommand* whileCommand = new LoopCommand(symbolTable);
+    IfCommand* ifCommand = new IfCommand(symbolTable);
     Print* print = new Print();
     Sleep* sleep = new Sleep();
-    mapCommand->insert({"openDataServer",openServerCommand});
-    //mapCommand->insert({"ConnectedCommand",connectedCommand});
 
+    mapCommand->insert({"openDataServer",openServerCommand});
+    mapCommand->insert({"connectControlClient",connectedCommand});
+    mapCommand->insert({"while",whileCommand});
+    mapCommand->insert({"if",ifCommand});
     mapCommand->insert({"Print",print});
     mapCommand->insert({"Sleep",sleep});
 
     vector<string> data = lexer(argv[1]);
 
-    parser(mapCommand,symbolTable,symbolTableSim, data,masQueue);
+    parser(mapCommand,symbolTable,symbolTableSim, data,masQueue, isConnect);
     return 0;
 }
-vector<string> lexer (string filename) {
+ vector<string> lexer (string filename) {
     ifstream fp;
     string str;
     vector<string> arr;
@@ -103,9 +110,8 @@ vector<string> lexer (string filename) {
     fp.close();
     return arr;
 }
-void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas){
+void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect){
    int index = 0 ;
-   bool isConnect =false ;
    while (index <  data.size()){
        if ( data[index] == "var"){
            index++;
@@ -118,21 +124,14 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            index+= 4;
        }
       else {
-          if (data[index] == "openDataServer"){
-              Interpreter* i3 = new Interpreter();
-              Expression* e6 =  i3->interpret(data[index+1]);
-              double num = e6->calculate();
-              auto finalStr = std::to_string(num);
-              thread server (OpenServerCommand:: openServer,finalStr,symbolTableSim,&isConnect);
-              while (!isConnect){
-                server.join();
-            }
-
-          }
            auto itr = mapCommand->find(data[index]);
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
                index += c->execute(mapCommand,data, index,queueMas);
+               std::cout << "eeeee" << std::endl;
+               while (!isConnect){
+
+               }
            }
            else {
                auto itr = symbolTable->find(data[index]);

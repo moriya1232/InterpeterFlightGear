@@ -3,6 +3,7 @@
 //
 
 #include "OpenServerCommand.h"
+#include "ex1.h"
 #include <sys/socket.h>
 #include <string>
 #include <iostream>
@@ -12,7 +13,52 @@
 
 
 int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas) {
-   return 2;
+    Interpreter* i3 = new Interpreter();
+    Expression* e6 =  i3->interpret(data[index+1]);
+    double num = e6->calculate();
+    auto finalStr = std::to_string(num);
+    initSymballXml(symboltableSim);
+    int port=stoi(finalStr);
+    //create socket
+    int socketfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (socketfd == -1) {
+        //error
+        std::cerr << "Could not create a socket" << std::endl;
+        return -1;
+    }
+
+    //bind socket to IP address
+    sockaddr_in address; //in means IP4
+    address.sin_family = AF_INET;
+    address.sin_addr.s_addr = INADDR_ANY; //give me any IP allocated for my machine
+    address.sin_port = htons(port);
+
+    if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
+        std::cerr << "Could not bind the socket to an IP" << std::endl;
+        return -2;
+    }
+
+    //making socket listen to the port
+    if (listen(socketfd, 5) == -1) {
+        std::cerr << "Error during listening command" << std::endl;
+        return -3;
+    } else {
+        std::cout << "Server is now listening ..." << std::endl;
+    }
+
+    // accepting a client
+    int client_socket = accept(socketfd, (struct sockaddr *) &address,
+                               (socklen_t *) &address);
+
+    if (client_socket == -1) {
+        std::cerr << "Error accepting client" << std::endl;
+        return -4;
+    }
+    close(socketfd); //closing the listening socket
+    thread server (OpenServerCommand:: openServer,finalStr,symboltableSim,&this->isConnect,client_socket);
+    server.detach();
+
+    return 2;
 };
 void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableSim) {
     unordered_map<string,Var *>* tempMap = symboltableSim;
@@ -118,55 +164,12 @@ void OpenServerCommand:: initXmlArr(string* arr) {
         arr[34] = "/controls/switches/master-alt";
         arr[35] = "/engines/engine/rpm";
 };
- int OpenServerCommand:: openServer(string str ,unordered_map<string,Var*>* symboltableSim, bool* isConnect) {
-     initSymballXml(symboltableSim);
-     int port=stoi(str);
+ int OpenServerCommand:: openServer(string str,unordered_map<string,Var*>* symboltableSim ,bool* isConnect,int client_socket) {
      string arr[40] ;
      initXmlArr(arr);
-
-    //create socket
-    int socketfd = socket(AF_INET, SOCK_STREAM, 0);
-    if (socketfd == -1) {
-        //error
-        std::cerr << "Could not create a socket" << std::endl;
-        return -1;
-    }
-
-    //bind socket to IP address
-    sockaddr_in address; //in means IP4
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY; //give me any IP allocated for my machine
-    address.sin_port = htons(port);
-
-    if (bind(socketfd, (struct sockaddr *) &address, sizeof(address)) == -1) {
-        std::cerr << "Could not bind the socket to an IP" << std::endl;
-        return -2;
-    }
-
-    //making socket listen to the port
-    if (listen(socketfd, 5) == -1) {
-        std::cerr << "Error during listening command" << std::endl;
-        return -3;
-    } else {
-        std::cout << "Server is now listening ..." << std::endl;
-    }
-
-    // accepting a client
-    int client_socket = accept(socketfd, (struct sockaddr *) &address,
-                               (socklen_t *) &address);
-
-    if (client_socket == -1) {
-        std::cerr << "Error accepting client" << std::endl;
-        return -4;
-    }
-
-    close(socketfd); //closing the listening socket
-
     //reading from client
     char buffer[1024] = {0};
     string str1="";
-     *isConnect = true;
-
      while(true) {
         int i = 0;
         int j = 0;
@@ -181,7 +184,6 @@ void OpenServerCommand:: initXmlArr(string* arr) {
                 i++;
             }
             Var* v = symboltableSim->at(arr[j]);
-
             v->setValue(str1);
             if (j == 35){
                 break;
@@ -189,7 +191,7 @@ void OpenServerCommand:: initXmlArr(string* arr) {
             j++;
             i++;
         }
-
+         *isConnect = true;
     }
 
 };
