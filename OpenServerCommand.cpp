@@ -55,7 +55,7 @@ int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vect
         return -4;
     }
     close(socketfd); //closing the listening socket
-    thread server (OpenServerCommand:: openServer,finalStr,symboltableSim,&this->isConnect,client_socket);
+    thread server (OpenServerCommand:: openServer,finalStr,symboltableSim,this->isConnect,client_socket);
     server.detach();
 
     return 2;
@@ -174,6 +174,7 @@ void OpenServerCommand:: initXmlArr(string* arr) {
         int i = 0;
         int j = 0;
         int valread = read(client_socket, buffer, 1024);
+
          while (buffer[i] != '\n') {
              str1 = "";
             while (buffer[i] != ',' ) {
