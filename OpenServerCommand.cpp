@@ -174,7 +174,6 @@ void OpenServerCommand:: initXmlArr(string* arr) {
         int i = 0;
         int j = 0;
         int valread = read(client_socket, buffer, 1024);
-
          while (buffer[i] != '\n') {
              str1 = "";
             while (buffer[i] != ',' ) {

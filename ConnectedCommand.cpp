@@ -50,7 +50,7 @@ int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector
     *this->isConnect = false ;
     thread client(ConnectedCommand::sendMassage,client_socket,queueMas , this->isConnect);
     client.detach();
-
+    return 2;
     //close(client_socket);
 }
 void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage ,bool* isConnect) {

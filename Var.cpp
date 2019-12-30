@@ -9,6 +9,7 @@ int Var :: execute(unordered_map <string,Command*>* mapCommand,vector<string>& d
         str="set" + str +" "+ this->value+"\r\n";
         queueMas->push(str);
     }
+    return 2;
 }
 
 void Var::setDir(string s) {if (s == "->"){this->dir = 'R';}else{this->dir = 'L';}};

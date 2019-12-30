@@ -10,7 +10,7 @@
 
 class ConditionParser : public Command {
 public:
-    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas);
+    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas)=0;
     virtual ~ConditionParser(){};
 
 };

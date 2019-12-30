@@ -253,9 +253,9 @@ void Interpreter:: checkInput(string s){
         if (s.substr(i,1) == ")"){
             close++;
         }
-       if ((numbers.find(s.substr(i,1)) == std::string::npos)&&
-               (op.find(s.substr(i,1)) == std::string::npos))
-            throw "Error : Invalid input";
+     //  if ((numbers.find(s.substr(i,1)) == std::string::npos)&&
+              // (op.find(s.substr(i,1)) == std::string::npos))
+        //    throw "Error : Invalid input";
     }
     if (close != open){
         throw "Error : Invalid input";

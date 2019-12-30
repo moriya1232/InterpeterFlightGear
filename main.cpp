@@ -17,6 +17,7 @@
 
 
 using namespace std;
+
 vector<string>  lexer (string str);
 void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect);
 int main(int argc,char* argv[]) {
@@ -41,7 +42,6 @@ int main(int argc,char* argv[]) {
     mapCommand->insert({"Sleep",sleep});
 
     vector<string> data = lexer(argv[1]);
-
     parser(mapCommand,symbolTable,symbolTableSim, data,masQueue, isConnect);
     return 0;
 }
@@ -117,7 +117,7 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            index++;
            string key = data[index];
            string dir = data[index+1];
-           string sim = data[index+3];
+           string sim = data[index+3].substr(1,data[index+3].size()-2);
            Var* v = symbolTableSim->find(sim)->second;
            v->setDir(dir);
            symbolTable->insert({key,v});
