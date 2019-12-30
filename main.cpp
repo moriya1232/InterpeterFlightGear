@@ -27,7 +27,7 @@ int main(int argc,char* argv[]) {
     queue <string>* masQueue=new queue<string>();
 
     OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim,&isConnect);
-    ConnectedCommand* connectedCommand = new ConnectedCommand();
+    ConnectedCommand* connectedCommand = new ConnectedCommand(&isConnect);
     LoopCommand* whileCommand = new LoopCommand(symbolTable);
     IfCommand* ifCommand = new IfCommand(symbolTable);
     Print* print = new Print();
@@ -128,12 +128,10 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
                index += c->execute(mapCommand,data, index,queueMas);
-
-               std::cout << "eeeee" << std::endl;
+             //  std::cout << "eeeee" << std::endl;
                while (!isConnect){
 
                }
-
            }
            else {
                auto itr = symbolTable->find(data[index]);

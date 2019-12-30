@@ -12,15 +12,17 @@
 #include <cstring>
 #include <queue>
 #include <thread>
-void sendMassage(int clientSocket,queue<string>* queueMassage);
 int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas) {
+    int found =data[index+1].find_first_of(",",0);
+    string localhost = data[index+1].substr(1,found-1);
+    string port =  data[index+1].substr(found+1);
 
-    int PORT = stoi(data.at(index + 2));
+    int PORT = stoi(port);
     //create socket
     int client_socket = socket(AF_INET, SOCK_STREAM, 0);
-    int n = data.at(index + 1).length();
+    int n = localhost.length();
     char char_array[n + 1];
-    strcpy(char_array, data.at(index + 1).c_str());
+    strcpy(char_array, localhost.c_str());
 
     if (client_socket == -1) {
         //error
@@ -45,12 +47,15 @@ int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector
         std::cout << "Client is now connected to server" << std::endl;
     }
 
-    thread client(ConnectedCommand::sendMassage,client_socket,queueMas);
+    *this->isConnect = false ;
+    thread client(ConnectedCommand::sendMassage,client_socket,queueMas , this->isConnect);
+    client.detach();
 
-    close(client_socket);
+    //close(client_socket);
 }
-    void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage) {
+void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage ,bool* isConnect) {
         while (true) {
+
             if (!queueMassage->empty()) {
                 string s = queueMassage->front();
                 int n = s.length();
@@ -62,8 +67,9 @@ int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector
                     std::cout << "Error sending message" << std::endl;
                 } else {
                     std::cout << "message sent to server" << std::endl;
+                    queueMassage->pop();
                 }
-                queueMassage->pop();
+               *isConnect = true;
             }
         }
     }
