@@ -56,7 +56,7 @@ int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vect
     }
     close(socketfd); //closing the listening socket
     thread server (OpenServerCommand:: openServer,finalStr,symboltableSim,this->isConnect,client_socket);
-    server.detach();
+    server.detach();//
 
     return 2;
 };

@@ -124,7 +124,7 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            index+= 4;
        }
       else {
-           auto itr = mapCommand->find(data[index]);
+           auto itr = mapCommand->find(data[index]);//
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
                index += c->execute(mapCommand,data, index,queueMas);
