@@ -171,7 +171,7 @@ Expression* Interpreter:: interpret(string infix){
         return myexp.top();
 }
 string Interpreter:: insertVariables(string s){
-    for (auto const& pair: parmeters) {
+    for (const  auto& pair: *parmeters) {
         string value = pair.second->getValue();
         string var = pair.first;
         if (s.find(var) != std::string::npos) {
@@ -214,7 +214,9 @@ string Interpreter:: unaryOp(string infix){
     for (unsigned int i = 0 ; i<infix.length()-1; i++){
         if (infix.at(i) == '-'){
             if (i == 0){
+
                 infix.at(i) = '$';
+
             }
             else if ((!numbers(infix.substr(i-1,1)))){
                 if((infix.at(i-1) == '(')){

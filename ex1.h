@@ -84,10 +84,10 @@ public:
 };
 //par 2
 class Interpreter {
-    map<string,Var*> parmeters ;
+    unordered_map <string,Var*>* parmeters ;
 
 public:
-    Interpreter(){};
+    Interpreter(unordered_map <string,Var*>* symbolTable){this->parmeters = symbolTable;};
     Expression* interpret(string s);
 
     int strong(string op);

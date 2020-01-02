@@ -12,7 +12,7 @@
 #include <cstring>
 #include <queue>
 #include <thread>
-int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas) {
+int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable) {
     int found =data[index+1].find_first_of(",",0);
     string localhost = data[index+1].substr(1,found-1);
     string port =  data[index+1].substr(found+1);
@@ -63,6 +63,7 @@ void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage
                 strcpy(char_array, s.c_str());
                 auto mas = char_array;
                 int is_sent = send(clientSocket, mas, strlen(mas), 0);
+                std::cout << mas << std::endl;
                 if (is_sent == -1) {
                     std::cout << "Error sending message" << std::endl;
                 } else {

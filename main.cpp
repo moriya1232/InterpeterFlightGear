@@ -17,7 +17,7 @@
 
 
 using namespace std;
-
+string doInter(string str,unordered_map <string,Var*>* symbolTable);
 vector<string>  lexer (string str);
 void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect);
 int main(int argc,char* argv[]) {
@@ -110,34 +110,51 @@ int main(int argc,char* argv[]) {
     fp.close();
     return arr;
 }
+string doInter(string str,unordered_map <string,Var*>* symbolTable){
+    Interpreter* inter = new Interpreter(symbolTable);
+    Expression* exp =  inter->interpret(str);
+    double num = exp->calculate();
+    auto finalStr = std::to_string(num);
+    return finalStr;
+}
 void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect){
    int index = 0 ;
    while (index <  data.size()){
        if ( data[index] == "var"){
+           Var* v;
            index++;
            string key = data[index];
-           string dir = data[index+1];
            string sim = data[index+3].substr(1,data[index+3].size()-2);
-           Var* v = symbolTableSim->find(sim)->second;
-           v->setDir(dir);
+           auto itr = symbolTableSim->find(sim);
+           if(itr != symbolTableSim->end()){
+               v = symbolTableSim->find(sim)->second;
+               string dir = data[index+1];
+               v->setDir(dir);
+               index+= 4;
+           }
+           else{
+               v = new Var();
+               v->setValue(doInter(data[index+1],symbolTable));
+               index+=2;
+           }
            symbolTable->insert({key,v});
-           index+= 4;
        }
       else {
            auto itr = mapCommand->find(data[index]);//
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
-               index += c->execute(mapCommand,data, index,queueMas);
+               index += c->execute(mapCommand,data, index,queueMas,symbolTable);
              //  std::cout << "eeeee" << std::endl;
                while (!isConnect){
 
                }
+
            }
            else {
                auto itr = symbolTable->find(data[index]);
                if (itr != symbolTable->end()) {
                    Var* c = itr->second;
-                   index += c->execute(mapCommand, data, index,queueMas);
+                   index += c->execute(mapCommand, data, index,queueMas,symbolTable);
                }
            }
        }

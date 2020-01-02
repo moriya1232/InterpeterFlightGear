@@ -6,7 +6,7 @@
 #include "ex1.h"
 
 
-int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas){
+int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable){
 
     index++;
     string con = data[index];
@@ -19,12 +19,12 @@ int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<strin
             auto itr = mapCommand->find(data[index]);
             if (itr != mapCommand->end()) {
                 Command *c = itr->second;
-                index += c->execute(mapCommand, data, index, queueMas);
+                index += c->execute(mapCommand, data, index, queueMas,symbolTable);
             } else {
                 auto itr = symbolTable->find(data[index]);
                 if (itr != symbolTable->end()) {
                     Var *c = itr->second;
-                    index += c->execute(mapCommand, data, index, queueMas);
+                    index += c->execute(mapCommand, data, index, queueMas,symbolTable);
                 }
             }
         }
@@ -53,7 +53,7 @@ bool IfCommand::  conditionBool (string condition){
         rightCon = condition.substr(opPlace+2);
         op = condition.substr(opPlace,2);
     }
-    Interpreter* inter = new Interpreter();
+    Interpreter* inter = new Interpreter(symbolTable);
     double conExpL = inter->interpret(leftCon)->calculate();
     double conExpR = inter->interpret(rightCon)->calculate();
     if (op == "=="){

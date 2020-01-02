@@ -15,7 +15,7 @@ class LoopCommand : public ConditionParser {
 
 public:
     LoopCommand(unordered_map <string,Var*>* symboltable){this->symbolTable = symboltable;}
-    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas);
+    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable);
     bool conditionBool (string condition);
     virtual ~LoopCommand(){};
 

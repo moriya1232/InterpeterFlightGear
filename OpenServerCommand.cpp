@@ -12,11 +12,8 @@
 #include <thread>
 
 
-int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas) {
-    Interpreter* i3 = new Interpreter();
-    Expression* e6 =  i3->interpret(data[index+1]);
-    double num = e6->calculate();
-    auto finalStr = std::to_string(num);
+int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable) {
+    string finalStr = doInter(data[index+1],symbolTable);
     initSymballXml(symboltableSim);
     int port=stoi(finalStr);
     //create socket
@@ -65,7 +62,7 @@ void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableS
     tempMap->insert({"/instrumentation/airspeed-indicator/indicated-speed-kt",
                     new Var("instrumentation/airspeed-indicator/indicated-speed-kt")});
     tempMap->insert({"/sim/time/warp",new Var("sim/time/warp")});
-    tempMap->insert({"/controls/switches/magnetos",new Var("controls/switches/magnetos")});
+    tempMap->insert({"/controls/switches/magnetos",new Var("/controls/switches/magnetos")});
     tempMap->insert({"/instrumentation/heading-indicator/offset-deg",
                     new Var("/instrumentation/heading-indicator/offset-deg")});
     tempMap->insert({"/instrumentation/altimeter/indicated-altitude-ft",
@@ -110,7 +107,7 @@ void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableS
                     new Var("/controls/engines/current-engine/throttle")});
     tempMap->insert({"/controls/switches/master-avionics",
                     new Var("/controls/switches/master-avionics")});
-    tempMap->insert({"/controls/switches/starter",new Var("controls/switches/starter")});
+    tempMap->insert({"/controls/switches/starter",new Var("/controls/switches/starter")});
     tempMap->insert({"/engines/active-engine/auto-start",
                     new Var("/engines/active-engine/auto-start")});
     tempMap->insert({"/controls/flight/speedbrake",new Var("controls/flight/speedbrake")});
@@ -171,30 +168,38 @@ void OpenServerCommand:: initXmlArr(string* arr) {
     char buffer[1024] = {0};
     string str1="";
      while(true) {
+
         int i = 0;
         int j = 0;
-        int valread = read(client_socket, buffer, 1024);
-         while (buffer[i] != '\n') {
-             str1 = "";
-            while (buffer[i] != ',' ) {
-                if(buffer[i] == '\n'){
-                    break;
-                }
-                str1 += buffer[i];
-                i++;
-            }
-            Var* v = symboltableSim->at(arr[j]);
-            v->setValue(str1);
-            if (j == 35){
-                break;
-            }
-            j++;
-            i++;
-        }
+
+         int valread = read(client_socket, buffer, 1024);
+         for(char c:buffer) {
+             if(c==',') {//this say that this end of word
+                 Var* v = symboltableSim->at(arr[j]);
+                 v->setValue(str1);
+                 j++;
+                 str1="";
+             }
+             else if (c=='\n') { //end of 36 values.
+                 Var* v = symboltableSim->at(arr[j]);
+                 v->setValue(str1);
+                 j=0;
+                 str1="";
+             } else {
+                 str1+=c;
+             }
+         }
+
          *isConnect = true;
     }
 
 };
-
+string OpenServerCommand:: doInter(string str,unordered_map <string,Var*>* symbolTable){
+    Interpreter* inter = new Interpreter(symbolTable);
+    Expression* exp =  inter->interpret(str);
+    double num = exp->calculate();
+    auto finalStr = std::to_string(num);
+    return finalStr;
+}
 
 

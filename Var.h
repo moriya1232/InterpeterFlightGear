@@ -25,8 +25,9 @@ public:
     void setValue(string s){this->value = s;};
     string getValue(){return this->value;};
     void setSim(string s){this->sim = s;};
-    void setDir(string s);;
-    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas);
+    void setDir(string s);
+    string doInter(string str,unordered_map <string,Var*>* symbolTable);
+    int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable);
     virtual ~Var(){};
 
 };

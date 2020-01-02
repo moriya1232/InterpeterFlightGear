@@ -7,7 +7,7 @@
 #include <thread>
 
 
-int Sleep:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas){
+int Sleep:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable){
 
     string s = data[index+1];
     int time = stoi(s);
