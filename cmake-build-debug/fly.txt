@@ -46,6 +46,7 @@ Print("let's fly")
 var h0 = heading
 breaks = 0
 throttle = 1
+Sleep(5000)
 while alt < 1000 {
 	rudder = (h0 - heading)/80
 	aileron = -(roll) / 70

@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/shilo/CLionProjects/projectFly/cmake-build-debug"/>
+				<Option working_dir="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/shilo/CLionProjects/projectFly/cmake-build-debug"/>
+				<Option working_dir="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projectFly">
-				<Option output="/home/shilo/CLionProjects/projectFly/cmake-build-debug/projectFly" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/shilo/CLionProjects/projectFly/cmake-build-debug"/>
+				<Option output="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/projectFly" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 projectFly"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 projectFly"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projectFly/fast">
-				<Option output="/home/shilo/CLionProjects/projectFly/cmake-build-debug/projectFly" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/shilo/CLionProjects/projectFly/cmake-build-debug"/>
+				<Option output="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/projectFly" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,87 +67,87 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 projectFly/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 projectFly/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/shilo/CLionProjects/projectFly/cmake-build-debug"/>
+				<Option working_dir="/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/shilo/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Command.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Command.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/ConditionParser.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/ConditionParser.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/ConnectedCommand.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/ConnectedCommand.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Expression.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Expression.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/IfCommand.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/IfCommand.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/IfCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/LoopCommand.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/LoopCommand.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/OpenServerCommand.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/OpenServerCommand.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Print.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Print.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Print.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Print.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Sleep.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Sleep.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Sleep.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Sleep.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Var.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Var.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/Var.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Var.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/ex1.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ex1.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/ex1.h">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ex1.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/main.cpp">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/main.cpp">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/shilo/CLionProjects/projectFly/CMakeLists.txt">
+		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
