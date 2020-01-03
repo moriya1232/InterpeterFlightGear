@@ -91,7 +91,7 @@ public:
     Expression* interpret(string s);
 
     int strong(string op);
-
+    string removeSpaces(string infix);
     bool numbers(string c);
     void checkInput(string s);
     string unaryOp(string infix);

@@ -82,8 +82,8 @@ Expression* Interpreter:: interpret(string infix){
     std::stack<string> mystack;
     std::stack<Expression*> myexp;
 
+    infix = removeSpaces(infix);
     infix = insertVariables(infix);
-
     infix = unaryOp(infix);
     checkInput (infix);
     for ( unsigned int j = 0 ; j < infix.length(); j++) {
@@ -110,13 +110,13 @@ Expression* Interpreter:: interpret(string infix){
         }
         else if ((infix.at(j) == '+') || (infix.at(j) == '-') || (infix.at(j) == '*') || (infix.at(j) == '/')||
                 (infix.at(j) == '$') || (infix.at(j) == '#')) {
-                if ((infix.at(j+1) == '+') || (infix.at(j+1) == '-') || (infix.at(j+1) == '*') || (infix.at(j+1) == '/')||
-                    (infix.at(j+1) == '$') || (infix.at(j+1) == '#')) {
+                if ((infix.at(j+1) == '+') || (infix.at(j+1) == '-') || (infix.at(j+1) == '*') || (infix.at(j+1) == '/')){
                     throw "Error : Invalid input";
             }
-            while (!mystack.empty() && strong(mystack.top()) >= strong(infix.substr(j,1))) {
-                myqueue.push(mystack.top());
-                mystack.pop();
+                while (!mystack.empty() && strong(mystack.top()) >= strong(infix.substr(j,1))) {
+                        myqueue.push(mystack.top());
+                        mystack.pop();
+
             }
             mystack.push(infix.substr(j,1));
         }
@@ -218,11 +218,10 @@ string Interpreter:: unaryOp(string infix){
                 infix.at(i) = '$';
 
             }
-            else if ((!numbers(infix.substr(i-1,1)))){
-                if((infix.at(i-1) == '(')){
+            else if (numbers(infix.substr(i+1,1))&& !numbers(infix.substr(i-1,1))){
+
                     infix.at(i) = '$';
 
-                }
             }
         }
         if (infix.at(i) == '+'){
@@ -237,8 +236,29 @@ string Interpreter:: unaryOp(string infix){
             }
         }
     }
+    for (unsigned int i = 0 ; i<infix.length()-1; i++){
+        int found = infix.find("$$",i);
+        if (found>=0){
+
+            infix.replace(i, i+2 ,"#");
+        }
+        int found1 = infix.find("##",i);
+        if (found1>=0){
+            infix.replace(i, i+2 ,"#");
+        }
+    }
     return infix;
 }
+string Interpreter::removeSpaces(string infix) {
+    string newInfix;
+    for (int i = 0; i < infix.length(); i++) {
+        if (infix[i] != ' ') {
+            newInfix += infix[i];
+        }
+    }
+    return newInfix;
+}
+
 void Interpreter:: checkInput(string s){
     string numbers = "0123456789";
     string op = "+-/*$#().";

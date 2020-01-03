@@ -40,17 +40,24 @@ bool LoopCommand::  conditionBool (string condition){
     string rightCon;
     string op;
 
-    int opPlace = condition.find_first_of("==", 0);
+    int opPlace = condition.find_first_of("=", 0);
     if (opPlace == -1){
-        opPlace = condition.find_first_of(">", 0);
-        if (opPlace == -1){
-            opPlace = condition.find_first_of("<", 0);
-        }
-        leftCon =  condition.substr(0, opPlace-1);
-        rightCon = condition.substr(opPlace+1);
-        op = condition.substr(opPlace,1);
+                opPlace = condition.find_first_of(">", 0);
+                if (opPlace == -1) {
+                    opPlace = condition.find_first_of("<", 0);
+                }
+                leftCon = condition.substr(0, opPlace - 1);
+                rightCon = condition.substr(opPlace + 1);
+                op = condition.substr(opPlace, 1);
     }
     else{
+        int opPlace = condition.find_first_of("<=", 0);
+        if (opPlace == -1) {
+            int opPlace = condition.find_first_of("=>", 0);
+            if (opPlace == -1) {
+                int opPlace = condition.find_first_of("==", 0);
+            }
+        }
         leftCon =  condition.substr(0, opPlace-1);
         rightCon = condition.substr(opPlace+2);
          op = condition.substr(opPlace,2);

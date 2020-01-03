@@ -63,8 +63,8 @@ void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableS
                     new Var("instrumentation/airspeed-indicator/indicated-speed-kt")});
     tempMap->insert({"/sim/time/warp",new Var("sim/time/warp")});
     tempMap->insert({"/controls/switches/magnetos",new Var("/controls/switches/magnetos")});
-    tempMap->insert({"/instrumentation/heading-indicator/offset-deg",
-                    new Var("/instrumentation/heading-indicator/offset-deg")});
+    tempMap->insert({"/instrumentation/heading-indicator/indicated-heading-deg",
+                    new Var("/instrumentation/heading-indicator/indicated-heading-deg")});
     tempMap->insert({"/instrumentation/altimeter/indicated-altitude-ft",
                     new Var("instrumentation/altimeter/indicated-altitude-ft")});
     tempMap->insert({"/instrumentation/altimeter/pressure-alt-ft",
@@ -127,7 +127,7 @@ void OpenServerCommand:: initXmlArr(string* arr) {
         arr[0] ="/instrumentation/airspeed-indicator/indicated-speed-kt";
         arr[1] = "/sim/time/warp";
         arr[2] = "/controls/switches/magnetos";
-        arr[3] = "/instrumentation/heading-indicator/offset-deg";
+        arr[3] = "/instrumentation/heading-indicator/indicated-heading-deg";
         arr[4] = "/instrumentation/altimeter/indicated-altitude-ft";
         arr[5] = "/instrumentation/altimeter/pressure-alt-ft";
         arr[6] = "/instrumentation/attitude-indicator/indicated-pitch-deg";
