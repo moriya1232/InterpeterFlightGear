@@ -11,7 +11,6 @@
 #include <netinet/in.h>
 #include <thread>
 
-
 int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable) {
     string finalStr = doInter(data[index+1],symbolTable);
     initSymballXml(symboltableSim);
@@ -53,30 +52,30 @@ int OpenServerCommand:: execute(unordered_map <string,Command*>* mapCommand,vect
     }
     close(socketfd); //closing the listening socket
     thread server (OpenServerCommand:: openServer,finalStr,symboltableSim,this->isConnect,client_socket);
-    server.detach();//
+    server.detach();
 
     return 2;
 };
 void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableSim) {
     unordered_map<string,Var *>* tempMap = symboltableSim;
     tempMap->insert({"/instrumentation/airspeed-indicator/indicated-speed-kt",
-                    new Var("instrumentation/airspeed-indicator/indicated-speed-kt")});
+                    new Var("/instrumentation/airspeed-indicator/indicated-speed-kt")});
     tempMap->insert({"/sim/time/warp",new Var("sim/time/warp")});
     tempMap->insert({"/controls/switches/magnetos",new Var("/controls/switches/magnetos")});
-    tempMap->insert({"/instrumentation/heading-indicator/indicated-heading-deg",
-                    new Var("/instrumentation/heading-indicator/indicated-heading-deg")});
+    tempMap->insert({"/instrumentation/heading-indicator/offset-deg",
+                    new Var("/instrumentation/heading-indicator/offset-deg")});
     tempMap->insert({"/instrumentation/altimeter/indicated-altitude-ft",
-                    new Var("instrumentation/altimeter/indicated-altitude-ft")});
+                    new Var("/instrumentation/altimeter/indicated-altitude-ft")});
     tempMap->insert({"/instrumentation/altimeter/pressure-alt-ft",
-                    new Var("instrumentation/altimeter/pressure-alt-ft")});
+                    new Var("/instrumentation/altimeter/pressure-alt-ft")});
     tempMap->insert({"/instrumentation/attitude-indicator/indicated-pitch-deg",
-                    new Var("instrumentation/attitude-indicator/indicated-pitch-deg")});
+                    new Var("/instrumentation/attitude-indicator/indicated-pitch-deg")});
     tempMap->insert({"/instrumentation/attitude-indicator/indicated-roll-deg",
-                    new Var("instrumentation/attitude-indicator/indicated-roll-deg")});
+                    new Var("/instrumentation/attitude-indicator/indicated-roll-deg")});
     tempMap->insert({"/instrumentation/attitude-indicator/internal-pitch-deg",
-                    new Var{"instrumentation/attitude-indicator/internal-pitch-deg"}});
+                    new Var{"/instrumentation/attitude-indicator/internal-pitch-deg"}});
     tempMap->insert({"/instrumentation/attitude-indicator/internal-roll-deg",
-                    new Var("instrumentation/attitude-indicator/internal-roll-deg")});
+                    new Var("/instrumentation/attitude-indicator/internal-roll-deg")});
     tempMap->insert({"/instrumentation/encoder/indicated-altitude-ft",
                     new Var("/instrumentation/encoder/indicated-altitude-ft")});
     tempMap->insert({"/instrumentation/encoder/pressure-alt-ft",
@@ -97,10 +96,10 @@ void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableS
             new Var("/instrumentation/turn-indicator/indicated-turn-rate")});
     tempMap->insert({"/instrumentation/vertical-speed-indicator/indicated-speed-fpm",
                     new Var("/instrumentation/vertical-speed-indicator/indicated-speed-fpm")});
-    tempMap->insert({"/controls/flight/aileron",new Var("controls/flight/aileron")});
-    tempMap->insert({"/controls/flight/elevator",new Var("controls/flight/elevator")});
-    tempMap->insert({"/controls/flight/rudder",new Var("controls/flight/rudder")});
-    tempMap->insert({"/controls/flight/flaps",new Var("controls/flight/flaps")});
+    tempMap->insert({"/controls/flight/aileron",new Var("/controls/flight/aileron")});
+    tempMap->insert({"/controls/flight/elevator",new Var("/controls/flight/elevator")});
+    tempMap->insert({"/controls/flight/rudder",new Var("/controls/flight/rudder")});
+    tempMap->insert({"/controls/flight/flaps",new Var("/controls/flight/flaps")});
     tempMap->insert({"/controls/engines/engine/throttle",
                     new Var("/controls/engines/engine/throttle")});
     tempMap->insert({"/controls/engines/current-engine/throttle",
@@ -121,13 +120,13 @@ void OpenServerCommand:: initSymballXml(unordered_map<string,Var*>* symboltableS
                     new Var("/controls/switches/master-bat")});
     tempMap->insert({"/controls/switches/master-alt",
                     new Var("/controls/switches/master-alt")});
-    tempMap->insert({"/engines/engine/rpm",new Var("engines/engine/rpm")});
+    tempMap->insert({"/engines/engine/rpm",new Var("/engines/engine/rpm")});
 };
 void OpenServerCommand:: initXmlArr(string* arr) {
         arr[0] ="/instrumentation/airspeed-indicator/indicated-speed-kt";
         arr[1] = "/sim/time/warp";
         arr[2] = "/controls/switches/magnetos";
-        arr[3] = "/instrumentation/heading-indicator/indicated-heading-deg";
+        arr[3] = "/instrumentation/heading-indicator/offset-deg";
         arr[4] = "/instrumentation/altimeter/indicated-altitude-ft";
         arr[5] = "/instrumentation/altimeter/pressure-alt-ft";
         arr[6] = "/instrumentation/attitude-indicator/indicated-pitch-deg";
@@ -168,11 +167,9 @@ void OpenServerCommand:: initXmlArr(string* arr) {
     char buffer[1024] = {0};
     string str1="";
      while(true) {
-
         int i = 0;
         int j = 0;
-
-         int valread = read(client_socket, buffer, 1024);
+         int valread = read(client_socket, buffer, 1048);
          for(char c:buffer) {
              if(c==',') {//this say that this end of word
                  Var* v = symboltableSim->at(arr[j]);
@@ -191,7 +188,7 @@ void OpenServerCommand:: initXmlArr(string* arr) {
          }
 
          *isConnect = true;
-    }
+     }
 
 };
 string OpenServerCommand:: doInter(string str,unordered_map <string,Var*>* symbolTable){

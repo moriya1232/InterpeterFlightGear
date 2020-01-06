@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/shilo/CLionProjects/projectFly/ConditionParser.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConditionParser.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/ConnectedCommand.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/IfCommand.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/IfCommand.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/LoopCommand.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/LoopCommand.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/OpenServerCommand.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/OpenServerCommand.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/Print.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Print.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/Sleep.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Sleep.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/Var.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Var.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/ex1.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ex1.cpp.o"
-  "/home/shilo/CLionProjects/projectFly/main.cpp" "/home/shilo/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConditionParser.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ConnectedCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/IfCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/IfCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/LoopCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/OpenServerCommand.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/Print.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Print.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/Sleep.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Sleep.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/Var.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/Var.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/ex1.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/ex1.cpp.o"
+  "/home/yanivmadmon/CLionProjects/projectFly/main.cpp" "/home/yanivmadmon/CLionProjects/projectFly/cmake-build-debug/CMakeFiles/projectFly.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

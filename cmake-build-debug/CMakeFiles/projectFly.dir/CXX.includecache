@@ -17,6 +17,12 @@ fstream
 -
 unordered_map
 -
+queue
+-
+
+/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.h
+Command.h
+/home/yanivmadmon/CLionProjects/projectFly/Command.h
 
 /home/yanivmadmon/CLionProjects/projectFly/ConnectedCommand.h
 iostream
@@ -34,11 +40,35 @@ Command.h
 
 /home/yanivmadmon/CLionProjects/projectFly/Expression.h
 
+/home/yanivmadmon/CLionProjects/projectFly/IfCommand.h
+ConditionParser.h
+/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.h
+Var.h
+/home/yanivmadmon/CLionProjects/projectFly/Var.h
+
+/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.cpp
+LoopCommand.h
+/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.h
+ex1.h
+/home/yanivmadmon/CLionProjects/projectFly/ex1.h
+
+/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.h
+ConditionParser.h
+/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.h
+Var.h
+/home/yanivmadmon/CLionProjects/projectFly/Var.h
+
 /home/yanivmadmon/CLionProjects/projectFly/OpenServerCommand.h
 Command.h
 /home/yanivmadmon/CLionProjects/projectFly/Command.h
 Var.h
 /home/yanivmadmon/CLionProjects/projectFly/Var.h
+
+/home/yanivmadmon/CLionProjects/projectFly/Print.cpp
+Print.h
+/home/yanivmadmon/CLionProjects/projectFly/Print.h
+ex1.h
+/home/yanivmadmon/CLionProjects/projectFly/ex1.h
 
 /home/yanivmadmon/CLionProjects/projectFly/Print.h
 Command.h
@@ -87,6 +117,8 @@ unordered_map
 -
 thread
 -
+queue
+-
 Command.h
 /home/yanivmadmon/CLionProjects/projectFly/Command.h
 OpenServerCommand.h
@@ -101,4 +133,8 @@ Sleep.h
 /home/yanivmadmon/CLionProjects/projectFly/Sleep.h
 ex1.h
 /home/yanivmadmon/CLionProjects/projectFly/ex1.h
+LoopCommand.h
+/home/yanivmadmon/CLionProjects/projectFly/LoopCommand.h
+IfCommand.h
+/home/yanivmadmon/CLionProjects/projectFly/IfCommand.h
 

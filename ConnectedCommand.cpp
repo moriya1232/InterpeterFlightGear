@@ -3,19 +3,23 @@
 //
 
 #include "ConnectedCommand.h"
+#include "ex1.h"
 #include <sys/socket.h>
 #include <string>
 #include <iostream>
-#include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <cstring>
 #include <queue>
 #include <thread>
+#include <mutex>
+
+std::mutex mutex_lock;
 int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable) {
     int found =data[index+1].find_first_of(",",0);
-    string localhost = data[index+1].substr(1,found-1);
-    string port =  data[index+1].substr(found+1);
+
+    string localhost = data[index+1].substr(1,found-2);
+    string port =  doInter(data[index+1].substr(found+1),symbolTable);
 
     int PORT = stoi(port);
     //create socket
@@ -50,13 +54,13 @@ int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector
     *this->isConnect = false ;
     thread client(ConnectedCommand::sendMassage,client_socket,queueMas , this->isConnect);
     client.detach();
-    return 2;
     //close(client_socket);
+
+    return 2;
 }
 void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage ,bool* isConnect) {
         while (true) {
-
-            if (!queueMassage->empty()) {
+            while (!queueMassage->empty()) {
                 string s = queueMassage->front();
                 int n = s.length();
                 char char_array[n + 1];
@@ -74,3 +78,11 @@ void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage
             }
         }
     }
+string ConnectedCommand:: doInter(string str,unordered_map <string,Var*>* symbolTable){
+    Interpreter* inter = new Interpreter(symbolTable);
+    Expression* exp =  inter->interpret(str);
+    double num = exp->calculate();
+    auto finalStr = std::to_string(num);
+    return finalStr;
+}
+

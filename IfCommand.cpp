@@ -14,7 +14,8 @@ int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<strin
     index+=2;
     int count = index;
     int count1 = 0;
-   if(this->condition){
+    if (this->condition){
+        index -= count1;
         while(data[index] != "}") {
             auto itr = mapCommand->find(data[index]);
             if (itr != mapCommand->end()) {
@@ -24,38 +25,52 @@ int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<strin
                 auto itr = symbolTable->find(data[index]);
                 if (itr != symbolTable->end()) {
                     Var *c = itr->second;
-                    index += c->execute(mapCommand, data, index, queueMas,symbolTable);
+                    index += c->execute(mapCommand, data, index, queueMas, symbolTable);
                 }
             }
         }
+        this->condition = conditionBool(con);
         count1 = index - count;
     }
+    if(count==index) {
+        while (data[index]!="}") {
+            count1++;
+        }
+        count1++;
+        return count1;
+    }
 
-    return count1;
-}
+    return count1+ 4;}
 bool IfCommand::  conditionBool (string condition){
-    int opPlace = condition.find_first_of("=", 0);
     string leftCon ;
     string rightCon;
     string op;
+
+    int opPlace = condition.find_first_of("=", 0);
     if (opPlace == -1){
         opPlace = condition.find_first_of(">", 0);
-        if (opPlace == -1){
+        if (opPlace == -1) {
             opPlace = condition.find_first_of("<", 0);
-
         }
-        leftCon =  condition.substr(0, opPlace);
-        rightCon = condition.substr(opPlace+1);
-        op = condition.substr(opPlace,1);
+        leftCon = condition.substr(0, opPlace - 1);
+        rightCon = condition.substr(opPlace + 1);
+        op = condition.substr(opPlace, 1);
     }
     else{
-        leftCon =  condition.substr(0, opPlace);
+        int opPlace = condition.find_first_of("<=", 0);
+        if (opPlace == -1) {
+            int opPlace = condition.find_first_of("=>", 0);
+            if (opPlace == -1) {
+                int opPlace = condition.find_first_of("==", 0);
+            }
+        }
+        leftCon =  condition.substr(0, opPlace-1);
         rightCon = condition.substr(opPlace+2);
         op = condition.substr(opPlace,2);
     }
     Interpreter* inter = new Interpreter(symbolTable);
-    double conExpL = inter->interpret(leftCon)->calculate();
-    double conExpR = inter->interpret(rightCon)->calculate();
+    float conExpL = inter->interpret(leftCon)->calculate();
+    float conExpR = inter->interpret(rightCon)->calculate();
     if (op == "=="){
         if (conExpL == conExpR){
             return true;
@@ -72,6 +87,20 @@ bool IfCommand::  conditionBool (string condition){
         }
     } else if (op == ">"){
         if (conExpL > conExpR){
+            return true;
+        }
+        else {
+            return false;
+        }
+    } else if (op == "=>"){
+        if ((conExpL > conExpR)||(conExpL == conExpR)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    } else if (op == "<="){
+        if ((conExpL < conExpR)||(conExpL == conExpR)){
             return true;
         }
         else {

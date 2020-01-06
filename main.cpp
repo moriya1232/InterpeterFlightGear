@@ -16,17 +16,20 @@
 #include "IfCommand.h"
 
 
+
 using namespace std;
 string doInter(string str,unordered_map <string,Var*>* symbolTable);
 vector<string>  lexer (string str);
 void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect);
 int main(int argc,char* argv[]) {
     bool isConnect = false;
+    //create the maps and the queue
     unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>();
     unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>();
     unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>();
     queue <string>* masQueue=new queue<string>();
 
+    //install the objects in main the map
     OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim,&isConnect);
     ConnectedCommand* connectedCommand = new ConnectedCommand(&isConnect);
     LoopCommand* whileCommand = new LoopCommand(symbolTable);
@@ -34,6 +37,7 @@ int main(int argc,char* argv[]) {
     Print* print = new Print();
     Sleep* sleep = new Sleep();
 
+    // insert the keys and the objects
     mapCommand->insert({"openDataServer",openServerCommand});
     mapCommand->insert({"connectControlClient",connectedCommand});
     mapCommand->insert({"while",whileCommand});
@@ -41,11 +45,13 @@ int main(int argc,char* argv[]) {
     mapCommand->insert({"Print",print});
     mapCommand->insert({"Sleep",sleep});
 
+    //the lexer
     vector<string> data = lexer(argv[1]);
+    // the parser
     parser(mapCommand,symbolTable,symbolTableSim, data,masQueue, isConnect);
     return 0;
 }
- vector<string> lexer (string filename) {
+vector<string> lexer (string filename) {
     ifstream fp;
     string str;
     vector<string> arr;
@@ -66,6 +72,13 @@ int main(int argc,char* argv[]) {
             temp = str.substr(last, found - last);
             if (found != last) {
                 arr.push_back(temp);
+                if((str.at(found+1)=='"')&&(arr.back()=="Print")) {
+                    found++;
+                    found = str.find_first_of(" \"(),=\t", found);
+                    arr.push_back(str.substr(found,str.length()-found-1));
+                    last = str.length();
+                    break;
+                }
             }
             if((found!=-1)&&((arr.back()=="while")||(arr.back()=="if"))) {
                 int temp1=found+1;
@@ -76,24 +89,36 @@ int main(int argc,char* argv[]) {
                 last=(str.length());
                 break;
             }
+            if((found!=-1)&&((arr.back()=="Print"))) {
+                int temp2=str.find_first_of('"',found+1);
+                if(temp2==-1) {
+                    arr.push_back(str.substr(found,str.length()-found));
+                    last=str.length();
+                    break;
+                }
+                arr.push_back(str.substr((found+1),(temp2-found)+1));
+                break;
+            }
             if((found!=-1)&&(str.at(found)=='=')) {
                 if((str.at(found-1)=='<')||(str.at(found-1)=='>')) {
                     arr.pop_back();
                     arr.push_back(str.substr(found-1,2));
                     found = str.find_first_of(" (),=\t", found);
+                    break;
                 }
                 else {
                     j = str.length() - found;
-                    arr.push_back(str.substr(found + 2, j));
-                    found = (str.length()) - 1;
+                    if(str.at(found+1)==' ') {
+                        arr.push_back(str.substr(found + 2, j));
+                        found = (str.length()) - 1;
+                    }
+                    else {
+                        arr.push_back(str.substr(found+1,j));
+                    }
                 }
             }
             if((found!=-1)&&(str.at(found)=='(')) {
                 i=str.find_first_of(")");
-                /*if((found<str.length())&&((str.at(found+1)=='/')||(str.at(found+1)=='*')
-                ||(str.at(found+1)=='+')||(str.at(found+1)=='-'))) {
-                    arr.push_back(str.substr(found+1))
-                }*/
                 i=i-found;
                 arr.push_back(str.substr(found+1,i-1));
                 found=str.find_first_of(")", found+1);
@@ -120,7 +145,7 @@ string doInter(string str,unordered_map <string,Var*>* symbolTable){
 void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Var*>* symbolTable,unordered_map <string,Var*>* symbolTableSim,vector<string>& data,queue<string>* queueMas , bool& isConnect){
    int index = 0 ;
    while (index <  data.size()){
-       if ( data[index] == "var"){
+       if ( data[index] == "var"){ // find the var in the symbolTableSim and put him in the symbolTable
            Var* v;
            index++;
            string key = data[index];
@@ -132,7 +157,7 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
                v->setDir(dir);
                index+= 4;
            }
-           else{
+           else{ // when the var isn't in the symbolTableSim
                v = new Var();
                v->setValue(doInter(data[index+1],symbolTable));
                index+=2;
@@ -140,18 +165,16 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            symbolTable->insert({key,v});
        }
       else {
-           auto itr = mapCommand->find(data[index]);//
+           auto itr = mapCommand->find(data[index]); // look for value in the mapcommand
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
                index += c->execute(mapCommand,data, index,queueMas,symbolTable);
-             //  std::cout << "eeeee" << std::endl;
                while (!isConnect){
 
                }
-
            }
            else {
-               auto itr = symbolTable->find(data[index]);
+               auto itr = symbolTable->find(data[index]); // look for value in the symbolTable
                if (itr != symbolTable->end()) {
                    Var* c = itr->second;
                    index += c->execute(mapCommand, data, index,queueMas,symbolTable);

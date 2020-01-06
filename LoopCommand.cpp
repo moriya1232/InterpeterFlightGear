@@ -13,7 +13,7 @@ int LoopCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<str
     index+=2;
     int count = index;
     int count1 = 0;
-    while (this->condition){
+    while (this->condition){ // doing the parser action
         index -= count1;
         while(data[index] != "}") {
             auto itr = mapCommand->find(data[index]);
@@ -28,43 +28,53 @@ int LoopCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<str
                 }
             }
         }
-        this->condition = conditionBool(con);
-
+        this->condition = conditionBool(con); // check if the condition not change
         count1 = index - count;
     }
+    if(count==index) { //  if the condition was allways false
+        while (data[index]!="}") { // check how mach the index of the main data need to go on
+            count1++;
+        }
+        count1++;
+        return count1;
+    }
 
-   return count1+ 4;
+    return count1+ 4;
 }
 bool LoopCommand::  conditionBool (string condition){
     string leftCon ;
     string rightCon;
     string op;
-
+    // check the place of the  condition operator
     int opPlace = condition.find_first_of("=", 0);
     if (opPlace == -1){
-                opPlace = condition.find_first_of(">", 0);
-                if (opPlace == -1) {
-                    opPlace = condition.find_first_of("<", 0);
-                }
-                leftCon = condition.substr(0, opPlace - 1);
-                rightCon = condition.substr(opPlace + 1);
-                op = condition.substr(opPlace, 1);
+        opPlace = condition.find_first_of(">", 0);
+        if (opPlace == -1) {
+            opPlace = condition.find_first_of("<", 0);
+        }
+        leftCon = condition.substr(0, opPlace - 1);
+        rightCon = condition.substr(opPlace + 1);
+        op = condition.substr(opPlace, 1);
     }
     else{
         int opPlace = condition.find_first_of("<=", 0);
         if (opPlace == -1) {
-            int opPlace = condition.find_first_of("=>", 0);
+            int opPlace = condition.find_first_of(">=", 0);
             if (opPlace == -1) {
                 int opPlace = condition.find_first_of("==", 0);
             }
         }
+        // divider the condition the three strings
         leftCon =  condition.substr(0, opPlace-1);
         rightCon = condition.substr(opPlace+2);
-         op = condition.substr(opPlace,2);
+        op = condition.substr(opPlace,2);
     }
+    // interpret the expression of the condition
     Interpreter* inter = new Interpreter(symbolTable);
-    double conExpL = inter->interpret(leftCon)->calculate();
-    double conExpR = inter->interpret(rightCon)->calculate();
+    float conExpL = inter->interpret(leftCon)->calculate();
+    float conExpR = inter->interpret(rightCon)->calculate();
+
+    // doing the condition operator and return false/true
     if (op == "=="){
         if (conExpL == conExpR){
             return true;
@@ -86,7 +96,7 @@ bool LoopCommand::  conditionBool (string condition){
         else {
             return false;
         }
-    } else if (op == "=>"){
+    } else if (op == ">="){
         if ((conExpL > conExpR)||(conExpL == conExpR)){
             return true;
         }
