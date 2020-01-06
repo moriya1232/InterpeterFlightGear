@@ -5,7 +5,6 @@
 #include "IfCommand.h"
 #include "ex1.h"
 
-
 int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable){
 
     index++;
@@ -32,15 +31,18 @@ int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<strin
         this->condition = conditionBool(con);
         count1 = index - count; // the number that the index move up
     }
-    if(count==index) {
+    if(count==index) {// if the condition allways was false
+        count1 = 3;
         while (data[index]!="}") {
             count1++;
+            index++;
         }
         count1++;
         return count1;
     }
 
-    return count1+ 4;}
+    return count1+ 4;
+}
 bool IfCommand::  conditionBool (string condition){
     string leftCon ;
     string rightCon;

@@ -32,8 +32,10 @@ int LoopCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<str
         count1 = index - count;
     }
     if(count==index) { //  if the condition was allways false
+        count1 =3;
         while (data[index]!="}") { // check how mach the index of the main data need to go on
             count1++;
+            index++;
         }
         count1++;
         return count1;
