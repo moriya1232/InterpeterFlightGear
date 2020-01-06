@@ -10,8 +10,8 @@
 #include "Var.h"
 
 class OpenServerCommand :public Command {
-    unordered_map<string,Var*>* symboltableSim;
-    bool* isConnect;
+    unordered_map<string,Var*>* symboltableSim; // the symbol table from the simulator
+    bool* isConnect; // check if the client connect
 public:
     OpenServerCommand (unordered_map <string,Var*>* symbolTableSim , bool *isconnect){this->symboltableSim = symbolTableSim; this->isConnect = isconnect;};
      static void initSymballXml(unordered_map<string,Var*>* symboltableSim);

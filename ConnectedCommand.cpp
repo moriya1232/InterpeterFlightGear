@@ -18,8 +18,8 @@ std::mutex mutex_lock;
 int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable) {
     int found =data[index+1].find_first_of(",",0);
 
-    string localhost = data[index+1].substr(1,found-2);
-    string port =  doInter(data[index+1].substr(found+1),symbolTable);
+    string localhost = data[index+1].substr(1,found-2); //  input string for localhost
+    string port =  doInter(data[index+1].substr(found+1),symbolTable); // doing interperter to the sting for port
 
     int PORT = stoi(port);
     //create socket
@@ -60,14 +60,13 @@ int ConnectedCommand::execute(unordered_map <string,Command*>* mapCommand,vector
 }
 void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage ,bool* isConnect) {
         while (true) {
-            while (!queueMassage->empty()) {
+            while (!queueMassage->empty()) { // while their is messege into the  queue
                 string s = queueMassage->front();
                 int n = s.length();
                 char char_array[n + 1];
                 strcpy(char_array, s.c_str());
                 auto mas = char_array;
                 int is_sent = send(clientSocket, mas, strlen(mas), 0);
-                std::cout << mas << std::endl;
                 if (is_sent == -1) {
                     std::cout << "Error sending message" << std::endl;
                 } else {
@@ -79,10 +78,10 @@ void ConnectedCommand:: sendMassage(int clientSocket,queue<string>* queueMassage
         }
     }
 string ConnectedCommand:: doInter(string str,unordered_map <string,Var*>* symbolTable){
-    Interpreter* inter = new Interpreter(symbolTable);
+    Interpreter* inter = new Interpreter(symbolTable); // create new interperter
     Expression* exp =  inter->interpret(str);
     double num = exp->calculate();
-    auto finalStr = std::to_string(num);
+    auto finalStr = std::to_string(num); // the final string after interpertion
     return finalStr;
 }
 

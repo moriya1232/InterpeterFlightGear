@@ -5,7 +5,7 @@
 /**
  * Expression Interface
  */
-class Expression {
+class Expression { // abstract class
 
 public:
     virtual double calculate() = 0;

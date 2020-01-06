@@ -87,9 +87,6 @@
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/Command.h">
 			<Option target="projectFly"/>
 		</Unit>
-		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.cpp">
-			<Option target="projectFly"/>
-		</Unit>
 		<Unit filename="/home/yanivmadmon/CLionProjects/projectFly/ConditionParser.h">
 			<Option target="projectFly"/>
 		</Unit>

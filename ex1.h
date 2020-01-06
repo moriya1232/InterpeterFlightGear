@@ -90,9 +90,9 @@ public:
     Interpreter(unordered_map <string,Var*>* symbolTable){this->parmeters = symbolTable;};
     Expression* interpret(string s);
 
-    int strong(string op);
+    int strong(string op); // checking the strong operator
     string removeSpaces(string infix);
-    bool numbers(string c);
+    bool numbers(string c); // if this a number or not
     void checkInput(string s);
     string unaryOp(string infix);
     string insertVariables(string s);

@@ -10,19 +10,19 @@ int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<strin
 
     index++;
     string con = data[index];
-    this->condition = conditionBool(con);
+    this->condition = conditionBool(con); // check the value of the condition and give true or false
     index+=2;
     int count = index;
     int count1 = 0;
     if (this->condition){
         index -= count1;
         while(data[index] != "}") {
-            auto itr = mapCommand->find(data[index]);
+            auto itr = mapCommand->find(data[index]); // checks in the mapcommand
             if (itr != mapCommand->end()) {
                 Command *c = itr->second;
                 index += c->execute(mapCommand, data, index, queueMas,symbolTable);
             } else {
-                auto itr = symbolTable->find(data[index]);
+                auto itr = symbolTable->find(data[index]); // checks in the symbol table
                 if (itr != symbolTable->end()) {
                     Var *c = itr->second;
                     index += c->execute(mapCommand, data, index, queueMas, symbolTable);
@@ -30,7 +30,7 @@ int IfCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<strin
             }
         }
         this->condition = conditionBool(con);
-        count1 = index - count;
+        count1 = index - count; // the number that the index move up
     }
     if(count==index) {
         while (data[index]!="}") {
@@ -46,7 +46,7 @@ bool IfCommand::  conditionBool (string condition){
     string rightCon;
     string op;
 
-    int opPlace = condition.find_first_of("=", 0);
+    int opPlace = condition.find_first_of("=", 0); // check what the operator
     if (opPlace == -1){
         opPlace = condition.find_first_of(">", 0);
         if (opPlace == -1) {
@@ -64,14 +64,14 @@ bool IfCommand::  conditionBool (string condition){
                 int opPlace = condition.find_first_of("==", 0);
             }
         }
-        leftCon =  condition.substr(0, opPlace-1);
-        rightCon = condition.substr(opPlace+2);
-        op = condition.substr(opPlace,2);
+        leftCon =  condition.substr(0, opPlace-1); // the left side in the condition
+        rightCon = condition.substr(opPlace+2); // the right side in the condition
+        op = condition.substr(opPlace,2); // the operator
     }
     Interpreter* inter = new Interpreter(symbolTable);
-    float conExpL = inter->interpret(leftCon)->calculate();
+    float conExpL = inter->interpret(leftCon)->calculate(); // if this experssion doing interpetion
     float conExpR = inter->interpret(rightCon)->calculate();
-    if (op == "=="){
+    if (op == "=="){  // checks what the operator
         if (conExpL == conExpR){
             return true;
         }

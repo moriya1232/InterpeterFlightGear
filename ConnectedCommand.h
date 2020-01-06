@@ -22,8 +22,8 @@ public:
     ConnectedCommand (bool *isconnect){this->isConnect = isconnect;};
     int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable);
     virtual ~ConnectedCommand(){};
-    static void sendMassage(int clientSocket,queue<string>* queueMassage ,bool* isConnect);
-    string doInter(string str,unordered_map <string,Var*>* symbolTable);
+    static void sendMassage(int clientSocket,queue<string>* queueMassage ,bool* isConnect); // func that send massage to the simulator
+    string doInter(string str,unordered_map <string,Var*>* symbolTable); // doing interception to exp
 
 
 };

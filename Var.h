@@ -15,8 +15,8 @@ using namespace std;
 
 
 class Var : public Command {
-    string value ;
-    string sim;
+    string value ; // the value
+    string sim; // the address in the simulator
     char dir ;  // direction
 public:
     Var(string val , string si) { this->value = val; this->sim = si;};

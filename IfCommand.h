@@ -10,8 +10,8 @@
 #include "Var.h"
 
 class IfCommand : public ConditionParser {
-    bool condition;
-    unordered_map <string,Var*>* symbolTable;
+    bool condition; // if the condition true or flase
+    unordered_map <string,Var*>* symbolTable;// the symbol table of the program
 
 public:
     IfCommand(unordered_map <string,Var*>* symboltable){this->symbolTable = symboltable;}

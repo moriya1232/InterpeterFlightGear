@@ -86,7 +86,8 @@ Expression* Interpreter:: interpret(string infix){
     infix = insertVariables(infix);
     infix = unaryOp(infix);
     checkInput (infix);
-    for ( unsigned int j = 0 ; j < infix.length(); j++) {
+    //the LRU algorithem
+    for ( unsigned int j = 0 ; j < infix.length(); j++) { // checking the string
         if (numbers(infix.substr(j,1))){
             string strNum;
             int k = 0;
@@ -138,19 +139,19 @@ Expression* Interpreter:: interpret(string infix){
             left = myexp.top();
             myexp.pop();
 
-            if (myqueue.front() == "+") {
+            if (myqueue.front() == "+") { // create new plus
                 exp = new Plus(left, right);
             }
-            if (myqueue.front() == "-") {
+            if (myqueue.front() == "-") {// create new minus
                 exp = new Minus(left, right);
             }
-            if (myqueue.front() == "*") {
+            if (myqueue.front() == "*") {// create new malt
                 exp = new Mul(left, right);
             }
-            if (myqueue.front() == "/") {
+            if (myqueue.front() == "/") {// create new div
                 exp = new Div(left, right);
             }
-        } else if ((myqueue.front() == "$") || (myqueue.front() == "#")) {
+        } else if ((myqueue.front() == "$") || (myqueue.front() == "#")) { // unary exp
             if (myqueue.front() == "$") {
                 exp = new UMinus(myexp.top());
                 myexp.pop();
@@ -170,7 +171,7 @@ Expression* Interpreter:: interpret(string infix){
     }
         return myexp.top();
 }
-string Interpreter:: insertVariables(string s){
+string Interpreter:: insertVariables(string s){ // insert the Variables from the table
     for (const  auto& pair: *parmeters) {
         string value = pair.second->getValue();
         string var = pair.first;
@@ -186,7 +187,7 @@ string Interpreter:: insertVariables(string s){
     }
     return s;
 }
-bool Interpreter:: numbers(string s){
+bool Interpreter:: numbers(string s){ // checking is this a number
     string numbers = "0123456789";
     for (unsigned int i =0; i< numbers.size() ; i++){
         if(s == numbers.substr(i,1)){
@@ -210,7 +211,7 @@ int Interpreter:: strong(string op){
     }
     else {return 0;}
 }
-string Interpreter:: unaryOp(string infix){
+string Interpreter:: unaryOp(string infix){ // replace unary operator to symbol
     for (unsigned int i = 0 ; i<infix.length()-1; i++){
         if (infix.at(i) == '-'){
             if (i == 0){
@@ -249,7 +250,7 @@ string Interpreter:: unaryOp(string infix){
     }
     return infix;
 }
-string Interpreter::removeSpaces(string infix) {
+string Interpreter::removeSpaces(string infix) { // remove all the spaces from the string
     string newInfix;
     for (int i = 0; i < infix.length(); i++) {
         if (infix[i] != ' ') {

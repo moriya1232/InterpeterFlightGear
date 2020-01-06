@@ -16,12 +16,12 @@ int LoopCommand:: execute(unordered_map <string,Command*>* mapCommand,vector<str
     while (this->condition){ // doing the parser action
         index -= count1;
         while(data[index] != "}") {
-            auto itr = mapCommand->find(data[index]);
+            auto itr = mapCommand->find(data[index]); // checks in the mapcommand
             if (itr != mapCommand->end()) {
                 Command *c = itr->second;
                 index += c->execute(mapCommand, data, index, queueMas,symbolTable);
             } else {
-                auto itr = symbolTable->find(data[index]);
+                auto itr = symbolTable->find(data[index]); // checks in the symbol Table
                 if (itr != symbolTable->end()) {
                     Var *c = itr->second;
                     index += c->execute(mapCommand, data, index, queueMas, symbolTable);

@@ -24,18 +24,18 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
 int main(int argc,char* argv[]) {
     bool isConnect = false;
     //create the maps and the queue
-    unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>();
-    unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>();
-    unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>();
-    queue <string>* masQueue=new queue<string>();
+    unordered_map <string,Command*>* mapCommand = new unordered_map <string,Command*>(); // the map of all the commands
+    unordered_map <string,Var*>* symbolTable = new unordered_map <string,Var*>(); // the map of all var that input fro the text
+    unordered_map <string,Var*>* symbolTableSim = new unordered_map <string,Var*>(); // the map of all var from the simulator
+    queue <string>* masQueue=new queue<string>(); // the massage queue
 
     //install the objects in main the map
-    OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim,&isConnect);
-    ConnectedCommand* connectedCommand = new ConnectedCommand(&isConnect);
-    LoopCommand* whileCommand = new LoopCommand(symbolTable);
-    IfCommand* ifCommand = new IfCommand(symbolTable);
-    Print* print = new Print();
-    Sleep* sleep = new Sleep();
+    OpenServerCommand* openServerCommand = new OpenServerCommand(symbolTableSim,&isConnect);// new open server
+    ConnectedCommand* connectedCommand = new ConnectedCommand(&isConnect); // new client
+    LoopCommand* whileCommand = new LoopCommand(symbolTable); //  loop command
+    IfCommand* ifCommand = new IfCommand(symbolTable); // if command
+    Print* print = new Print(); // print command
+    Sleep* sleep = new Sleep(); // slee command
 
     // insert the keys and the objects
     mapCommand->insert({"openDataServer",openServerCommand});
@@ -51,7 +51,7 @@ int main(int argc,char* argv[]) {
     parser(mapCommand,symbolTable,symbolTableSim, data,masQueue, isConnect);
     return 0;
 }
-vector<string> lexer (string filename) {
+vector<string> lexer (string filename) { // Separates the characters from the data
     ifstream fp;
     string str;
     vector<string> arr;
@@ -135,7 +135,7 @@ vector<string> lexer (string filename) {
     fp.close();
     return arr;
 }
-string doInter(string str,unordered_map <string,Var*>* symbolTable){
+string doInter(string str,unordered_map <string,Var*>* symbolTable){ // do the interpretation
     Interpreter* inter = new Interpreter(symbolTable);
     Expression* exp =  inter->interpret(str);
     double num = exp->calculate();
@@ -169,7 +169,7 @@ void parser(unordered_map <string,Command*>* mapCommand,unordered_map <string,Va
            if (itr != mapCommand->end()) {
                Command* c = itr->second;
                index += c->execute(mapCommand,data, index,queueMas,symbolTable);
-               while (!isConnect){
+               while (!isConnect){ // waiting to the client
 
                }
            }

@@ -6,10 +6,9 @@
 #include "ex1.h"
 
 int Var :: execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>*queueMas,unordered_map <string,Var*>* symbolTable) {
-    string finalStr = doInter(data[index+1],symbolTable);
+    string finalStr = doInter(data[index+1],symbolTable); // doing interption
     this->setValue(finalStr);
-    if (this->dir == 'R') {
-        //string str = this->sim.substr(1, (str.length() - 1));
+    if (this->dir == 'R') { // send messege to the simulator
        string  str="set " + this->sim +" "+ this->value+"\r\n";
         queueMas->push(str);
     }

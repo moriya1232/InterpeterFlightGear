@@ -13,7 +13,7 @@
 class Var;
 using namespace std;
 
-class Command {
+class Command { // abstract class
 public:
     virtual int execute(unordered_map <string,Command*>* mapCommand,vector<string>& data , int index,queue<string>* queueMas,unordered_map <string,Var*>* symbolTable) = 0;
     virtual ~Command() {}
